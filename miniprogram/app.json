@@ -1,0 +1,55 @@
+{
+  "pages": [ 
+    "pages/index/index",
+    "pages/cats/渣渣辉/渣渣辉",
+    "pages/cats/妲己/妲己",
+    "pages/cats/麻团/麻团",
+    "pages/cats/Nature/Nature",
+    "pages/cats/霖霖/霖霖",
+    "pages/cats/面包/面包",
+    "pages/cats/炸鸡/炸鸡",
+    "pages/cats/阿金/阿金",
+    "pages/cats/太郎/太郎",
+    "pages/cats/大白/大白",
+    "pages/cats/阿狸/阿狸",
+    "pages/cats/嫖嫖/嫖嫖",
+    "pages/cats/三明治/三明治",
+    
+    "pages/about/about",
+    "pages/logs/logs",
+    "pages/science/science",
+    "pages/index/玳瑁及三花/玳瑁及三花",
+    "pages/index/橘猫及橘白/橘猫及橘白",
+    "pages/index/纯色/纯色",
+    "pages/index/奶牛/奶牛",
+    "pages/index/狸花/狸花",
+    "pages/index/所有/所有"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "万柳喵喵之家",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "selectedColor":"#7CA698",
+    "color": "#888888",
+    "list": [
+      {
+        "text": "查猫",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "text": "科普",
+        "pagePath": "pages/science/science"
+      },
+      {
+        "text": "关于",
+        "pagePath": "pages/about/about"
+      }
+    ]
+  }
+
+}
