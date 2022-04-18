@@ -13,6 +13,7 @@ data: {
 { name:"阿金"},
 { name:"嫖嫖"},
 { name:"三明治"},
+{ name:"咪猫"},
 ],
  dead_catlist: [
 { name:"妲己"},
