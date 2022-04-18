@@ -22,14 +22,23 @@ Page({
   copyTBL: function (e) {
   var self = this;
   wx.setClipboardData({
-    data: 'http://gitee.com/circlelq/miniprogram',//需要复制的内容
+    data: '15813323234',//需要复制的内容
     success: function (res) {
       // self.setData({copyTip:true}),
      
     }
   })
   },
-
+  copyTBL1: function (e) {
+    var self = this;
+    wx.setClipboardData({
+      data: 'zhengliyin1007@163.com',//需要复制的内容
+      success: function (res) {
+        // self.setData({copyTip:true}),
+       
+      }
+    })
+    },
 
   // 跳转小程序
   naviToMini:function(e){
