@@ -56,6 +56,6 @@
         "pagePath": "pages/about/about"
       }
     ]
-  }
-
+  },
+  "lazyCodeLoading": "requiredComponents"
 }
