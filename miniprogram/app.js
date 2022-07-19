@@ -35,7 +35,7 @@ App({
 
   globalData: {
     userInfo: null,
-    url: "cloud://cloud1-4gehzrlo37071dc3.636c-cloud1-4gehzrlo37071dc3-1310892989/",
+    url: "https://gitee.com/circlelq/AssembleMiniprogram/raw/master/WanliuMeow/",
   },
   
 
