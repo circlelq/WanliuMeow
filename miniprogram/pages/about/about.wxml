@@ -1,9 +1,7 @@
-<navigator url="/pages/about/web/web">
-  <view style="display:flex; justify-content:center; align-items:center;">
-    <image mode="widthFix" src="/pages/images/huihui.jpg" style="width: 80%;">
-    </image>
-  </view>
-</navigator>
+<view style="display:flex; justify-content:center; align-items:center;">
+  <image mode="widthFix" src="/pages/images/huihui.jpg" style="width: 80%;">
+  </image>
+</view>
 
 <text> \n </text>
 
@@ -24,7 +22,7 @@
 
 <text> \n </text>
 
-<view class="staff">2022-04-18</view>
+<view class="staff">2022-09-17</view>
 
 <view class="staff">
   小程序开发：circle
