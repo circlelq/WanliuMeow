@@ -1,4 +1,18 @@
 //app.js
+import MPServerless from '@alicloud/mpserverless-sdk';
+const mpServerless = new MPServerless({
+  uploadFile: wx.uploadFile,
+  request: wx.request,
+  getAuthCode: wx.login,
+  getFileInfo: wx.getFileInfo,
+  getImageInfo: wx.getImageInfo,
+},  {
+  appId: 'wx6221c35fc9878631', // 小程序应用标识
+  spaceId: 'mp-1dca94ec-a727-4ec3-85a5-fe2b9e4cbdcd', // 服务空间标识
+  clientSecret: 'dtm04jkG302vz54XGXV5zQ==', // 服务空间 secret key
+  endpoint: 'https://api.next.bspapp.com', // 服务空间地址，从小程序 serverless 控制台处获得
+});
+
 App({
   onLaunch: function () {
     if (wx.canIUse('getUpdateManager')) {
