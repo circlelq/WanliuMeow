@@ -16,10 +16,6 @@
     'success', 'success_no_circle', 'info', 'warn', 'waiting', 'cancel', 'download', 'search', 'clear'
   ],
 
-  onPullDownRefresh: function () {
-    wx.stopPullDownRefresh()
-  },
-
   //转发跳转页面设置
   onLoad: function (options) {
     if (options.pageId) {

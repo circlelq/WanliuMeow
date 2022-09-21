@@ -1,0 +1,126 @@
+<view style="display:flex; justify-content:center; align-items:center;">
+  <image mode="widthFix" class="cat_image" src="{{url}}{{cat.name}}.jpg" style="width: 90%;">
+  </image>
+</view>
+
+
+<view class="itemname1">
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <view class="cat-card">{{cat.name}}</view>
+  </view>
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <!-- 猫叫声 -->
+    <view class="sound">
+      <block wx:for="{{audioArr}}" wx:key="content" wx:for-item="v" wx:for-index="key">
+
+        <!-- 默认状态 未播放 -->
+        <view wx:if="{{!v.bl}}" bindtap='audioPlay' data-key="{{key}}" data-id="{{v.id}}" data-bl="{{v.bl}}">
+          <image class="play" src="/pages/images/play.png"></image>
+        </view>
+
+        <!-- 当前正在播放状态 -->
+        <view wx:if="{{v.bl}}" bindtap='audioStop' data-key="{{key}}" data-id="{{v.id}}" data-bl="{{v.bl}}">
+          <image class="play" src="/pages/images/pause.png"></image>
+        </view>
+
+      </block>
+    </view>
+  </view>
+</view>
+
+
+
+
+<view class="itemname1">
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <text user-select="true">毛色</text>
+    <view class="itemname2">
+      <text user-select="true">{{cat.furColor}}</text>
+    </view>
+  </view>
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <text user-select="true">性别</text>
+    <view class="itemname2">
+      <text user-select="true">{{cat.gender}}</text>
+    </view>
+  </view>
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <text user-select="true">状况</text>
+    <view class="itemname2">
+      <text user-select="true">{{cat.status}}</text>
+    </view>
+  </view>
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <text user-select="true">绝育情况</text>
+    <view class="itemname2">
+      <text user-select="true">{{cat.isSterilization}}</text>
+    </view>
+  </view>
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <text user-select="true">属</text>
+    <view class="itemname2">
+      <text user-select="true">{{cat.Genus}}</text>
+    </view>
+  </view>
+  <view class="flex-wrp" style="flex-direction:column;">
+    <view wx:if="{{cat.viewingTime}}" style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+      <text user-select="true">观赏时间</text>
+    </view>
+    <view class="itemname2">
+      <text user-select="true">{{cat.viewingTime}}</text>
+    </view>
+  </view>
+  <view class="flex-wrp" style="flex-direction:column;">
+    <view wx:if="{{cat.places}}" style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+      <text user-select="true">位置</text>
+    </view>
+    <view class="itemname2">
+      <text user-select="true">{{cat.places}}</text>
+    </view>
+  </view>
+  <view class="flex-wrp" style="flex-direction:column;">
+    <view wx:if="{{cat.relation}}" style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+      <text user-select="true">关系</text>
+    </view>
+    <view class="itemname2">
+      <text user-select="true">{{cat.relation}}</text>
+    </view>
+  </view>
+
+</view>
+
+
+<view wx:if="{{relationship[0]}}" class="itemname1">
+  <navigator wx:for="{{relationship}}" url="/pages/cats/{{item.rela}}/{{item.rela}}">
+    <view style='flex-shrink:0; box-sizing:border-box; width:3rem; margin-right:1rem;'>
+      <image style="width:3rem;height:3rem;" src="{{url}}{{item.rela}}.png"></image>
+      <view style="text-align: center;  color:#353535;"> \n {{item.rela}} </view>
+    </view>
+  </navigator>
+</view>
+
+
+
+<text> \n </text>
+
+<block wx:for="{{nums}}">
+
+  <view style="display:flex; justify-content:center; align-items:center;">
+    <image mode="widthFix" class="cat_image" src="{{url}}{{catname}}{{item.num}}.jpg" style="width: 90%;">
+    </image>
+  </view>
+
+  <text> \n </text>
+
+</block>
+
+<block wx:for="{{MovieNums}}">
+
+  <view style="display:flex; justify-content:center; align-items:center;">
+    <video mode="widthFix" class="cat_image" src="{{url}}{{catname}}{{item.num}}.mp4" style="width: 90%;">
+    </video>
+  </view>
+
+  <text> \n </text>
+
+</block>

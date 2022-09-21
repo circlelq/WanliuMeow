@@ -22,6 +22,7 @@
     "pages/cats/北冰洋/北冰洋",
     
     "pages/about/about",
+    "pages/catDetail/catDetail",
     "pages/logs/logs",
     "pages/index/玳瑁及三花/玳瑁及三花",
     "pages/index/橘猫及橘白/橘猫及橘白",
@@ -34,8 +35,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "万柳喵喵之家",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
+    "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {

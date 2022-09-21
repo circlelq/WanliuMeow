@@ -7,10 +7,6 @@
     url: app.globalData.url,
   },
 
-  onPullDownRefresh:function(){
-    wx.stopPullDownRefresh()
-  },
-
   //转发跳转页面设置
   onLoad: function (options) {
     if (options.pageId) {

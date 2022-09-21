@@ -1,13 +1,11 @@
 <!--index.wxml-->
 
-<block wx:for="{{catlist}}">
-  <navigator url="/pages/cats/{{item.name}}/{{item.name}}" >
+<block wx:for="{{cat}}" wx:key="_id">
+  <view bindtap="clickCat" data-cat_id='{{item._id}}'>
     <view class="catitem">
       <image  class = 'avator ' src="{{url}}{{item.name}}.png" mode='aspectFill' ></image>
       <view class= "cat-name">{{item.name}}</view> 
     </view>
-  </navigator>
-
-  <view class="divLine"></view>
-  
+    <view class="divLine"></view>
+  </view>  
 </block>

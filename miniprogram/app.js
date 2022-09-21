@@ -13,8 +13,10 @@ const mpServerless = new MPServerless({
   endpoint: 'https://api.next.bspapp.com', // 服务空间地址，从小程序 serverless 控制台处获得
 });
 
+
 App({
-  onLaunch: function () {
+  onLaunch: async function () {
+
     if (wx.canIUse('getUpdateManager')) {
       const updateManager = wx.getUpdateManager()
       updateManager.onCheckForUpdate(function (res) {
@@ -45,12 +47,19 @@ App({
       })
     }
 
+    await mpServerless.user.authorize({
+      authProvider: 'wechat_openapi',
+    });
+
   },
+  mpServerless,
 
   globalData: {
     userInfo: null,
-    url: "https://wanliu-meow-1257850266.cos.ap-nanjing.myqcloud.com/",
+    url: "https://pku-1257850266.cos.ap-beijing.myqcloud.com/cat/",
   },
+
+  mpServerless
   
 
 })
