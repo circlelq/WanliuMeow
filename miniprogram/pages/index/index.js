@@ -1,23 +1,27 @@
-var app = getApp()
- Page({
-data: { 
- fostered_catlist: [
-{ name:"面包"},
-{ name:"炸鸡"},
-{ name:"霖霖"},
-{ name:"麻团"},
-{ name:"Nature"},
-],
- unknown_catlist: [
-{ name:"渣渣辉"},
-{ name:"阿金"},
-{ name:"嫖嫖"},
-{ name:"三明治"},
-{ name:"咪猫"},
-],
- dead_catlist: [
-{ name:"妲己"},
-],
+const app = getApp();
+
+Page({
+  data: {
+
+    cat: [],
+
+    fostered_catlist: [
+      { name: "面包" },
+      { name: "炸鸡" },
+      { name: "霖霖" },
+      { name: "麻团" },
+      { name: "Nature" },
+    ],
+    unknown_catlist: [
+      { name: "渣渣辉" },
+      { name: "阿金" },
+      { name: "嫖嫖" },
+      { name: "三明治" },
+      { name: "咪猫" },
+    ],
+    dead_catlist: [
+      { name: "妲己" },
+    ],
     screenWidth: 0,
     screenHeight: 0,
     imgwidth: 0,
@@ -26,11 +30,40 @@ data: {
     currentTab: 0,
     url: app.globalData.url,
   },
+
   navbarTap: function (e) {
     this.setData({
       currentTab: e.currentTarget.dataset.idx
     })
   },
+
+  onLoad: function (options) {
+    if (options.pageId) {
+      wx.navigateTo({
+        url: '/pages/cat/' + options.pageId + '/' + options.pageId,
+      })
+    }
+    this.loadMoreCat();
+  },
+
+
+  loadMoreCat() {
+
+    const cat = this.data.cat;
+    app.mpServerless.db.collection('WanliuMeow').find(
+      {},
+      {
+        // sort: { pinyin: 1 },
+        skip: cat.length,
+        limit: 20,
+      }
+    ).then(res => {
+      const { result: data } = res;
+      this.setData({ cat: cat.concat(data) });
+    }).catch(console.error);
+
+  },
+
 
   iconType: [
     'success', 'success_no_circle', 'info', 'warn', 'waiting', 'cancel', 'download', 'search', 'clear'
@@ -40,14 +73,6 @@ data: {
     wx.stopPullDownRefresh()
   },
 
-  //转发跳转页面设置
-  onLoad: function (options) {
-    if (options.pageId) {
-      wx.navigateTo({
-        url: '/pages/cats/' + options.pageId + '/' + options.pageId,
-      })
-    }
-  },
 
   //转发此页面的设置
   onShareAppMessage: function (ops) {
@@ -95,17 +120,7 @@ data: {
         url: '/pages/cats/' + e.detail.value + '/' + e.detail.value,
       })
     }
-  },
-  copyTBL: function (e) {
-    var self = this;
-    wx.setClipboardData({
-      data: '万柳喵喵之家',//需要复制的内容
-      success: function (res) {
-        // self.setData({copyTip:true}),
-
-      }
-    })
-  },
+  }
 
 })
 

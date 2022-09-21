@@ -96,7 +96,7 @@
 <text> \n </text>
 
 <view hidden="{{currentTab!==1}}">
-  <block wx:for="{{fostered_catlist}}">
+  <block wx:for="{{fostered_catlist}}" wx:key="_id">
     <navigator url="/pages/cats/{{item.name}}/{{item.name}}">
       <view class="catitem">
         <image class='avator ' lazy-load src="{{url}}{{item.name}}.png" mode='aspectFill'></image>
@@ -112,7 +112,7 @@
 <!-- 休学 -->
 
 <view hidden="{{currentTab!==2}}">
-  <block wx:for="{{unknown_catlist}}">
+  <block wx:for="{{unknown_catlist}}" wx:key="_id">
     <navigator url="/pages/cats/{{item.name}}/{{item.name}}">
       <view class="catitem">
         <image class='avator ' lazy-load src="{{url}}{{item.name}}.png" mode='aspectFill'></image>
@@ -128,7 +128,7 @@
 <!-- 喵星 -->
 
 <view hidden="{{currentTab!==3}}">
-  <block wx:for="{{dead_catlist}}">
+  <block wx:for="{{dead_catlist}}" wx:key="_id">
     <navigator url="/pages/cats/{{item.name}}/{{item.name}}">
       <view class="catitem">
         <image class='avator ' lazy-load src="{{url}}{{item.name}}.png" mode='aspectFill'></image>
