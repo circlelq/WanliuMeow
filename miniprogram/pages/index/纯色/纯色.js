@@ -1,9 +1,10 @@
-var app = getApp()
- Page({
-data: { 
- catlist: [
-{ name:"大白"},
-    ],
+const app = getApp();
+
+Page({
+  data: {
+
+    cat: [],
+
     screenWidth: 0,
     screenHeight: 0,
     imgwidth: 0,
@@ -11,19 +12,48 @@ data: {
     url: app.globalData.url,
   },
 
-  onPullDownRefresh:function(){
-    wx.stopPullDownRefresh()
-  },
 
   //转发跳转页面设置
   onLoad: function (options) {
     if (options.pageId) {
-      
+
       wx.navigateTo({
         url: '/pages/cats/' + options.pageId + '/' + options.pageId,
       })
     }
+    this.loadMoreCat();
+
   },
+
+  loadMoreCat() {
+
+    const cat = this.data.cat;
+    app.mpServerless.db.collection('WanliuMeow').find(
+      {
+        status: "健康",
+        classification: "5",
+      },
+      {
+        // sort: { pinyin: 1 },
+        skip: cat.length,
+        limit: 20,
+      }
+    ).then(res => {
+      const { result: data } = res;
+      this.setData({ cat: cat.concat(data) });
+    }).catch(console.error);
+
+  },
+
+  clickCat(e, isCatId = false) {
+    const cat_id = isCatId ? e : e.currentTarget.dataset.cat_id;
+    const detail_url = '/pages/catDetail/catDetail';
+    // console.log(cat_id)
+    wx.navigateTo({
+      url: detail_url + '?cat_id=' + cat_id,
+    });
+  },
+
 
   //转发此页面的设置
   onShareAppMessage: function (ops) {
@@ -44,16 +74,7 @@ data: {
     }
   },
 
-  // 搜索栏输入名字后页面跳转
-  bindconfirmT: function (e) {
-    console.log("e.detail.value");
-    if(e.detail.value) {
-    
-    wx.navigateTo({
-      url: '/pages/cats/' + e.detail.value + '/' + e.detail.value,
-    })
-  }
-  }
+
 
 
 })

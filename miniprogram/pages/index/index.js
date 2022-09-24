@@ -3,24 +3,13 @@ const app = getApp();
 Page({
   data: {
 
-    cat: [],
+    cat_health: [],
 
-    fostered_catlist: [
-      { name: "面包" },
-      { name: "炸鸡" },
-      { name: "霖霖" },
-      { name: "麻团" },
-      { name: "Nature" },
+    fostered_cat: [
     ],
-    unknown_catlist: [
-      { name: "渣渣辉" },
-      { name: "阿金" },
-      { name: "嫖嫖" },
-      { name: "三明治" },
-      { name: "咪猫" },
+    unknown_cat: [
     ],
-    dead_catlist: [
-      { name: "妲己" },
+    dead_cat: [
     ],
     screenWidth: 0,
     screenHeight: 0,
@@ -43,27 +32,78 @@ Page({
         url: '/pages/cat/' + options.pageId + '/' + options.pageId,
       })
     }
-    this.loadMoreCat();
+    this.loadMoreCat_fostered();
+    this.loadMoreCat_unknown();
+    this.loadMoreCat_dead();
   },
 
 
-  loadMoreCat() {
+  loadMoreCat_unknown() {
 
-    const cat = this.data.cat;
+    const unknown_cat = this.data.unknown_cat;
     app.mpServerless.db.collection('WanliuMeow').find(
-      {},
+      {
+        status: "失踪",
+      },
       {
         // sort: { pinyin: 1 },
-        skip: cat.length,
+        skip: unknown_cat.length,
         limit: 20,
       }
     ).then(res => {
       const { result: data } = res;
-      this.setData({ cat: cat.concat(data) });
+      this.setData({ unknown_cat: unknown_cat.concat(data) });
     }).catch(console.error);
 
   },
 
+  loadMoreCat_fostered() {
+
+    const fostered_cat = this.data.fostered_cat;
+    app.mpServerless.db.collection('WanliuMeow').find(
+      {
+        status: "送养",
+      },
+      {
+        // sort: { pinyin: 1 },
+        skip: fostered_cat.length,
+        limit: 20,
+      }
+    ).then(res => {
+      const { result: data } = res;
+      this.setData({ fostered_cat: fostered_cat.concat(data) });
+    }).catch(console.error);
+
+  },
+
+  loadMoreCat_dead() {
+
+    const dead_cat = this.data.dead_cat;
+    app.mpServerless.db.collection('WanliuMeow').find(
+      {
+        status: "离世",
+      },
+      {
+        // sort: { pinyin: 1 },
+        skip: dead_cat.length,
+        limit: 20,
+      }
+    ).then(res => {
+      const { result: data } = res;
+      this.setData({ dead_cat: dead_cat.concat(data) });
+    }).catch(console.error);
+
+  },
+
+
+  clickCat(e, isCatId = false) {
+    const cat_id = isCatId ? e : e.currentTarget.dataset.cat_id;
+    const detail_url = '/pages/catDetail/catDetail';
+    // console.log(cat_id)
+    wx.navigateTo({
+      url: detail_url + '?cat_id=' + cat_id,
+    });
+  },
 
   iconType: [
     'success', 'success_no_circle', 'info', 'warn', 'waiting', 'cancel', 'download', 'search', 'clear'

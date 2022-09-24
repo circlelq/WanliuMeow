@@ -5,9 +5,6 @@ Page({
 
     cat: [],
 
-    catlist: [
-      { name: "阿狸" }, { name: "小可" }, { name: "Name" }, { name: "阿橙" }, { name: "阿黄" }, { name: "北冰洋" }, { name: "太郎" }, { name: "大白" },
-    ],
     screenWidth: 0,
     screenHeight: 0,
     imgwidth: 0,
@@ -15,9 +12,6 @@ Page({
     url: app.globalData.url,
   },
 
-  onPullDownRefresh: function () {
-    wx.stopPullDownRefresh()
-  },
 
   //转发跳转页面设置
   onLoad: function (options) {
@@ -35,7 +29,9 @@ Page({
 
     const cat = this.data.cat;
     app.mpServerless.db.collection('WanliuMeow').find(
-      {},
+      {
+        status: "健康"
+      },
       {
         // sort: { pinyin: 1 },
         skip: cat.length,

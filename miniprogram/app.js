@@ -56,7 +56,7 @@ App({
 
   globalData: {
     userInfo: null,
-    url: "https://pku-1257850266.cos.ap-beijing.myqcloud.com/cat/",
+    url: "https://wanliu-meow-1257850266.cos.ap-nanjing.myqcloud.com/",
   },
 
   mpServerless

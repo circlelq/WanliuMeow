@@ -96,47 +96,41 @@
 <text> \n </text>
 
 <view hidden="{{currentTab!==1}}">
-  <block wx:for="{{fostered_catlist}}" wx:key="_id">
-    <navigator url="/pages/cats/{{item.name}}/{{item.name}}">
+  <block wx:for="{{fostered_cat}}" wx:key="_id">
+    <view bindtap="clickCat" data-cat_id='{{item._id}}'>
       <view class="catitem">
-        <image class='avator ' lazy-load src="{{url}}{{item.name}}.png" mode='aspectFill'></image>
+        <image class='avator ' src="{{url}}{{item.name}}.png" mode='aspectFill'></image>
         <view class="cat-name">{{item.name}}</view>
       </view>
-    </navigator>
-
-    <view class="divLine"></view>
-
+      <view class="divLine"></view>
+    </view>
   </block>
 </view>
 
 <!-- 休学 -->
 
 <view hidden="{{currentTab!==2}}">
-  <block wx:for="{{unknown_catlist}}" wx:key="_id">
-    <navigator url="/pages/cats/{{item.name}}/{{item.name}}">
+  <block wx:for="{{unknown_cat}}" wx:key="_id">
+    <view bindtap="clickCat" data-cat_id='{{item._id}}'>
       <view class="catitem">
-        <image class='avator ' lazy-load src="{{url}}{{item.name}}.png" mode='aspectFill'></image>
+        <image class='avator ' src="{{url}}{{item.name}}.png" mode='aspectFill'></image>
         <view class="cat-name">{{item.name}}</view>
       </view>
-    </navigator>
-
-    <view class="divLine"></view>
-
+      <view class="divLine"></view>
+    </view>
   </block>
 </view>
 
 <!-- 喵星 -->
 
 <view hidden="{{currentTab!==3}}">
-  <block wx:for="{{dead_catlist}}" wx:key="_id">
-    <navigator url="/pages/cats/{{item.name}}/{{item.name}}">
+  <block wx:for="{{dead_cat}}" wx:key="_id">
+    <view bindtap="clickCat" data-cat_id='{{item._id}}'>
       <view class="catitem">
-        <image class='avator ' lazy-load src="{{url}}{{item.name}}.png" mode='aspectFill'></image>
+        <image class='avator ' src="{{url}}{{item.name}}.png" mode='aspectFill'></image>
         <view class="cat-name">{{item.name}}</view>
       </view>
-    </navigator>
-
-    <view class="divLine"></view>
-
+      <view class="divLine"></view>
+    </view>
   </block>
 </view>

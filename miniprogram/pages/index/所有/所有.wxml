@@ -1,5 +1,3 @@
-<!--index.wxml-->
-
 <block wx:for="{{cat}}" wx:key="_id">
   <view bindtap="clickCat" data-cat_id='{{item._id}}'>
     <view class="catitem">
