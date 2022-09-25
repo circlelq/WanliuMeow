@@ -1,11 +1,11 @@
 <!--index.wxml-->
 
-<image class='avator ' src="/pages/images/huihui.png" mode='aspectFill'></image>
-<view class="search">
-  <input placeholder="请输入猫咪名称" bindconfirm="bindconfirmT" placeholder-class="placeholder" />
+
+<view class="circle">
+  <image class='avator ' src="/pages/images/huihui.png" mode='aspectFill'></image>
+  <input class='search' placeholder="请输入猫咪名称" bindconfirm="bindconfirmT" placeholder-class="placeholder" />
 </view>
 
-<text> \n\n\n </text>
 
 <view class="navbar">
   <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
@@ -35,7 +35,7 @@
 
   <view class="divLine"></view>
 
-  <navigator url="/pages/index/纯色/纯色">
+  <navigator url="/pages/index/纯色/纯色" hover-class="none">
     <view class="catitem">
       <image class='avator ' src="{{url}}大白.png" mode='aspectFill'></image>
       <view class="cat-name">纯色</view>
@@ -45,7 +45,7 @@
 
   <view class="divLine"></view>
 
-  <navigator url="/pages/index/奶牛/奶牛">
+  <navigator url="/pages/index/奶牛/奶牛" hover-class="none">
     <view class="catitem">
       <image class='avator ' src="{{url}}太郎.png" mode='aspectFill'></image>
       <view class="cat-name">奶牛</view>
@@ -54,7 +54,7 @@
 
   <view class="divLine"></view>
 
-  <navigator url="/pages/index/狸花/狸花">
+  <navigator url="/pages/index/狸花/狸花" hover-class="none">
     <view class="catitem">
       <image class='avator ' src="{{url}}嫖嫖.png" mode='aspectFill'></image>
       <view class="cat-name">狸花</view>

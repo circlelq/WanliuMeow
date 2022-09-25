@@ -5,52 +5,7 @@ Page({
   data: {
     cat: {},
 
-    catname: "Name",
-    catitems: [
-      {
-        category: "昵称",
-        content: " 内姆",
-      },
-      {
-        category: "毛色",
-        content: " 橘",
-      },
-      {
-        category: "性别",
-        content: " 母",
-      },
-      {
-        category: "状况",
-        content: " 健康",
-      },
-      {
-        category: "绝育情况",
-        content: " 已绝育",
-      },
-      {
-        category: "性格",
-        content: " 怕人 安全距离 1m 以内",
-      },
-      {
-        category: "外貌",
-        content: " 鼻子上有黑点，微笑唇，毛色比小可深",
-      },
-      {
-        category: "更多",
-        content: " 母随子姓，随nature姓内",
-      },
-      {
-        category: "关系",
-        content: " 炸鸡、面包、nature、霖霖的妈妈，喜欢和小可贴贴",
-      },
-
-    ],
     url: app.globalData.url,
-    relationship: [{ rela: "霖霖" },
-    { rela: "面包" },
-    { rela: "炸鸡" },
-    { rela: "小可" },
-    ],
     nums: [
       { num: 1 },
     ],
