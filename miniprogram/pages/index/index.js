@@ -37,24 +37,16 @@ Page({
     this.loadMoreCat_dead();
   },
 
-
-  loadMoreCat_unknown() {
-
-    const unknown_cat = this.data.unknown_cat;
-    app.mpServerless.db.collection('WanliuMeow').find(
-      {
-        status: "失踪",
-      },
-      {
-        // sort: { pinyin: 1 },
-        skip: unknown_cat.length,
-        limit: 20,
-      }
-    ).then(res => {
-      const { result: data } = res;
-      this.setData({ unknown_cat: unknown_cat.concat(data) });
-    }).catch(console.error);
-
+  onReachBottom: function () {
+    if (this.data.currentTab === 1) {
+      this.loadMoreCat_fostered();
+    }
+    if (this.data.currentTab === 2) {
+      this.loadMoreCat_unknown();
+    }
+    if (this.data.currentTab === 3) {
+      this.loadMoreCat_unknown();
+    }
   },
 
   loadMoreCat_fostered() {
@@ -72,6 +64,25 @@ Page({
     ).then(res => {
       const { result: data } = res;
       this.setData({ fostered_cat: fostered_cat.concat(data) });
+    }).catch(console.error);
+
+  },
+
+  loadMoreCat_unknown() {
+
+    const unknown_cat = this.data.unknown_cat;
+    app.mpServerless.db.collection('WanliuMeow').find(
+      {
+        status: "失踪",
+      },
+      {
+        // sort: { pinyin: 1 },
+        skip: unknown_cat.length,
+        limit: 20,
+      }
+    ).then(res => {
+      const { result: data } = res;
+      this.setData({ unknown_cat: unknown_cat.concat(data) });
     }).catch(console.error);
 
   },

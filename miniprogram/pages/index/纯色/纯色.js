@@ -25,6 +25,10 @@ Page({
 
   },
 
+  onReachBottom: function () {
+    this.loadMoreCat();
+  },
+
   loadMoreCat() {
 
     const cat = this.data.cat;
@@ -73,9 +77,6 @@ Page({
       }
     }
   },
-
-
-
 
 })
 

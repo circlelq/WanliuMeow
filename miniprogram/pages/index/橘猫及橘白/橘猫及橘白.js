@@ -24,6 +24,10 @@ Page({
     this.loadMoreCat();
 
   },
+  
+  onReachBottom: function () {
+    this.loadMoreCat();
+  },
 
   loadMoreCat() {
 
@@ -31,7 +35,7 @@ Page({
     app.mpServerless.db.collection('WanliuMeow').find(
       {
         status: "健康",
-        classification: "2",
+        classification: "3",
       },
       {
         // sort: { pinyin: 1 },
