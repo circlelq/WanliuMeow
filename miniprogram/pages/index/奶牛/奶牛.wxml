@@ -1,9 +1,7 @@
-<block wx:for="{{cat}}" wx:key="_id">
-  <view bindtap="clickCat" data-cat_id='{{item._id}}'>
+<navigator block wx:for="{{cat}}" wx:key="name" url="/pages/catDetail/catDetail?cat_name={{item.name}}">
     <view class="catitem">
       <image  class = 'avator ' src="{{url}}{{item.name}}.png" mode='aspectFill' ></image>
       <view class= "cat-name">{{item.name}}</view> 
     </view>
     <view class="divLine"></view>
-  </view>  
-</block>
+</navigator>

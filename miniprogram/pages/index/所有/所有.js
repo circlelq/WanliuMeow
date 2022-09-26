@@ -49,15 +49,6 @@ Page({
 
   },
 
-  clickCat(e, isCatId = false) {
-    const cat_id = isCatId ? e : e.currentTarget.dataset.cat_id;
-    const detail_url = '/pages/catDetail/catDetail';
-    // console.log(cat_id)
-    wx.navigateTo({
-      url: detail_url + '?cat_id=' + cat_id,
-    });
-  },
-
 
   //转发此页面的设置
   onShareAppMessage: function (ops) {

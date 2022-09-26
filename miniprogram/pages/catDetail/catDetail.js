@@ -1,4 +1,4 @@
-var cat_id = "1";
+var cat_name = "1";
 const app = getApp();
 
 Page({
@@ -12,12 +12,11 @@ Page({
   },
 
   onLoad: function (options) {
-    cat_id = options.cat_id;
-    console.log(cat_id)
-    console.log('test')
+    cat_name = options.cat_name;
+    console.log(cat_name)
     app.mpServerless.db.collection('WanliuMeow').find(
       {
-        _id: cat_id,
+        name: cat_name,
       },
       {}
     ).then(res => {

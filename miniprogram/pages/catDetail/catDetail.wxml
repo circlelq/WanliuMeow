@@ -149,7 +149,7 @@
 
 
 <view wx:if="{{cat.relatedCat[0]}}" class="itemname1">
-  <navigator wx:for="{{cat.relatedCat}}" url="/pages/cats/{{item.rela}}/{{item.rela}}">
+  <navigator wx:for="{{cat.relatedCat}}" url="/pages/catDetail/catDetail?cat_name={{item.rela}}">
     <view style='flex-shrink:0; box-sizing:border-box; width:3rem; margin-right:1rem;'>
       <image style="width:3rem;height:3rem;" src="{{url}}{{item.rela}}.png"></image>
       <view style="text-align: center;  color:#353535;"> \n {{item.rela}} </view>
