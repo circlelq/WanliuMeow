@@ -24,7 +24,7 @@ Page({
     this.loadMoreCat();
 
   },
-  
+
   onReachBottom: function () {
     this.loadMoreCat();
   },
@@ -35,7 +35,7 @@ Page({
     app.mpServerless.db.collection('WanliuMeow').find(
       {
         status: "健康",
-        classification: "3",
+        classification: "2",
       },
       {
         // sort: { pinyin: 1 },
@@ -47,15 +47,6 @@ Page({
       this.setData({ cat: cat.concat(data) });
     }).catch(console.error);
 
-  },
-
-  clickCat(e, isCatId = false) {
-    const cat_id = isCatId ? e : e.currentTarget.dataset.cat_id;
-    const detail_url = '/pages/catDetail/catDetail';
-    // console.log(cat_id)
-    wx.navigateTo({
-      url: detail_url + '?cat_id=' + cat_id,
-    });
   },
 
 
@@ -77,9 +68,6 @@ Page({
       }
     }
   },
-
-
-
 
 })
 

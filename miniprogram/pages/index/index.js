@@ -107,12 +107,12 @@ Page({
   },
 
 
-  clickCat(e, isCatId = false) {
-    const cat_id = isCatId ? e : e.currentTarget.dataset.cat_id;
+  clickCat(e, isCatName = false) {
+    const cat_name = isCatName ? e : e.currentTarget.dataset.cat_name;
     const detail_url = '/pages/catDetail/catDetail';
-    // console.log(cat_id)
+    // console.log(cat_name)
     wx.navigateTo({
-      url: detail_url + '?cat_id=' + cat_id,
+      url: detail_url + '?cat_name=' + cat_name,
     });
   },
 
@@ -165,10 +165,10 @@ Page({
 
   // 搜索栏输入名字后页面跳转
   bindconfirmT: function (e) {
-    console.log("e.detail.value");
+    // console.log("e.detail.value");
     if (e.detail.value) {
       wx.navigateTo({
-        url: '/pages/cats/' + e.detail.value + '/' + e.detail.value,
+        url: "/pages/catDetail/catDetail?cat_name=" + e.detail.value,
       })
     }
   }

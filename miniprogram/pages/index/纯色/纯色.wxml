@@ -1,5 +1,5 @@
 <block wx:for="{{cat}}" wx:key="_id">
-  <view bindtap="clickCat" data-cat_id='{{item._id}}'>
+  <view bindtap="clickCat" data-cat_name='{{item.name}}'>
     <view class="catitem">
       <image  class = 'avator ' src="{{url}}{{item.name}}.png" mode='aspectFill' ></image>
       <view class= "cat-name">{{item.name}}</view> 
