@@ -17,7 +17,7 @@ Page({
     classification = options.classification;
     this.loadMoreCat();
   },
-  
+
   onReachBottom: function () {
     this.loadMoreCat();
   },

@@ -18,7 +18,7 @@ Page({
     this.loadMoreCat();
 
   },
-  
+
   onReachBottom: function () {
     this.loadMoreCat();
   },
