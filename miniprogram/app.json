@@ -4,12 +4,8 @@
     "pages/about/about",
     "pages/catDetail/catDetail",
     "pages/logs/logs",
-    "pages/index/玳瑁及三花/玳瑁及三花",
-    "pages/index/橘猫及橘白/橘猫及橘白",
-    "pages/index/纯色/纯色",
-    "pages/index/奶牛/奶牛",
-    "pages/index/狸花/狸花",
-    "pages/index/所有/所有"
+    "pages/所有/所有",
+    "pages/花色/花色"
   ],
   "window": {
     "backgroundTextStyle": "light",

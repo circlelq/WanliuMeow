@@ -140,7 +140,7 @@ Page({
     }
     return {
       title: this.data.catname,
-      path: '/pages/index/index?pageId=' + this.data.catname,
+      path: '/pages/catDetail/catDetail?cat_name=' + this.data.cat.name,
       success: function (res) {
         // 转发成功
       },
@@ -157,7 +157,7 @@ Page({
     }
     return {
       title: this.data.catname,
-      path: '/pages/index/index?pageId=' + this.data.catname,
+      path: '/pages/catDetail/catDetail?cat_name=' + this.data.cat.name,
       success: function (res) {
         // 转发成功
       },
