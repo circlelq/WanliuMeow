@@ -1,5 +1,5 @@
 <view style="display:flex; justify-content:center; align-items:center;">
-  <image mode="widthFix" src="/pages/images/huihui.jpg" style="width: 80%;">
+  <image mode="widthFix" src="/pages/images/huihui.png" style="width: 80%;">
   </image>
 </view>
 
