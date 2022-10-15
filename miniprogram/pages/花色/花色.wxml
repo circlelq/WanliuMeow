@@ -1,6 +1,6 @@
 <navigator block wx:for="{{cat}}" wx:key="name" url="/pages/catDetail/catDetail?cat_name={{item.name}}">
     <view class="catitem">
-      <image  class = 'avator ' src="{{url}}{{item.name}}.png" mode='aspectFill' ></image>
+     <image lazy-load='true' class='avator' src="{{url}}{{item.name}}.png" mode='aspectFill' ></image>
       <view class= "cat-name">{{item.name}}</view> 
     </view>
     <view class="divLine"></view>
