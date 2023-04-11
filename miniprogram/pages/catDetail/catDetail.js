@@ -1,34 +1,30 @@
-var cat_name = "1";
+var _id = "1";
 const app = getApp();
 
 Page({
   data: {
     cat: {},
-
     url: app.globalData.url,
-    nums: [
-      { num: 1 },
-    ],
+    nums: [{
+      num: 1
+    }, ],
   },
 
   onLoad: function (options) {
-    cat_name = options.cat_name;
-    console.log(cat_name)
-    app.mpServerless.db.collection('WanliuMeow').find(
-      {
-        name: cat_name,
-      },
-      {}
-    ).then(res => {
+    _id = options._id;
+    console.log(_id)
+    app.mpServerless.db.collection('WanliuMeow').find({
+      _id: _id,
+    }, {}).then(res => {
       console.log(res)
-        this.setData({
-          cat: res.result[0],
-          photoscr: "https://pku-1257850266.cos.ap-beijing.myqcloud.com/cat/" + res.result[0].name + ".png"
-        });
-      }).then(res => {
+      this.setData({
+        cat: res.result[0],
+        photoscr: "https://pku-1257850266.cos.ap-beijing.myqcloud.com/cat/" + res.result[0].name + ".png"
+      });
+    }).then(res => {
       var number = 0
       var photoNum = 0
-      for(var j in this.data.cat.photos){
+      for (var j in this.data.cat.photos) {
         var photoNum = {
           num: photoNum
         }
@@ -37,27 +33,43 @@ Page({
         });
         number++
       }
-      
-      for (var i in this.data.cat.markers) {
-        var marker = [
-          {
-            iconPath: "https://pku-1257850266.cos.ap-beijing.myqcloud.com/cat/" + encodeURIComponent(this.data.cat.name) + ".png",
-            latitude: this.data.cat.markers[i].coordinates[1],
-            longitude: this.data.cat.markers[i].coordinates[0],
-            width: 50,
-            height: 50,
-            id: number,
-          }
-        ]
-        this.setData({
-          markers: this.data.markers.concat(marker),
-        });
-        number++
-      }
     });
   },
 
-  
+ upload() {
+    wx.showLoading({
+      title: '更新中...',
+    });
+    app.mpServerless.db.collection('WanliuMeow').updateMany(
+      { _id: this.data.cat._id }, {
+        $set: {
+          addPhotoNumber : this.data.cat.addPhotoNumber,
+          furColor : this.data.cat.furColor,
+          classification : this.data.cat.classification,
+          gender : this.data.cat.gender,
+          status : this.data.cat.status,
+          isSterilization : this.data.cat.isSterilization,
+          sterilizationTime : this.data.cat.sterilizationTime,
+          character : this.data.cat.character,
+          firstSightingTime : this.data.cat.firstSightingTime,
+          appearance : this.data.cat.appearance,
+          relationship : this.data.cat.relationship,
+          lastEditTime: Date(),
+        }
+      }).then(res => {
+        wx.showToast({
+          icon: 'success',
+          title: '操作成功',
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        wx.showToast({
+          icon: 'error',
+          title: '操作失败',
+        });
+      });
+  },
 
   //音频播放  
   audioPlay(e) {
@@ -108,7 +120,6 @@ Page({
       })
       return
     })
-
   },
 
   // 音频停止
@@ -123,15 +134,20 @@ Page({
     that.setData({
       audioArr: audioArr
     })
-
     myaudio.stop();
-
     //停止监听
     myaudio.onStop(() => {
       console.log('停止播放');
     })
   },
-
+  // 输入了东西
+  inputText(e) {
+    const key = e.currentTarget.dataset.key;
+    const value = e.detail.value;
+    this.setData({
+      ['cat.' + key]: value
+    });
+  },
 
   onShareAppMessage: function (res) {
     if (res.from === 'button') {
@@ -170,4 +186,3 @@ Page({
 })
 //创建audio控件
 const myaudio = wx.createInnerAudioContext();
-
