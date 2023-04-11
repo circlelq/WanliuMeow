@@ -6,9 +6,6 @@
 
 <view class="itemname1">
   <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-    <view class="cat-card">{{cat.name}}</view>
-  </view>
-  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
     <!-- 猫叫声 -->
     <view class="sound">
       <block wx:for="{{audioArr}}" wx:key="content" wx:for-item="v" wx:for-index="key">
@@ -22,134 +19,134 @@
         <view wx:if="{{v.bl}}" bindtap='audioStop' data-key="{{key}}" data-id="{{v.id}}" data-bl="{{v.bl}}">
           <image class="play" src="/pages/images/pause.png"></image>
         </view>
-
       </block>
     </view>
   </view>
 </view>
 
-
-
-
-<view class="itemname1">
-  <view wx:if="{{cat.furColor}}" class="flex-wrp" style="flex-direction:column;">
-    <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-      <text user-select="true">毛色</text>
-    </view>
-    <view class="itemname2">
-      <text user-select="true">{{cat.furColor}}</text>
-    </view>
-  </view>
-  <view wx:if="{{cat.gender}}" class="flex-wrp" style="flex-direction:column;">
-    <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-      <text user-select="true">性别</text>
-    </view>
-    <view class="itemname2">
-      <text user-select="true">{{cat.gender}}</text>
-    </view>
-  </view>
-  <view wx:if="{{cat.status}}" class="flex-wrp" style="flex-direction:column;">
-    <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-      <text user-select="true">状况</text>
-    </view>
-    <view class="itemname2">
-      <text user-select="true">{{cat.status}}</text>
-    </view>
-  </view>
-  <view wx:if="{{cat.isSterilization}}" class="flex-wrp" style="flex-direction:column;">
-    <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-      <text user-select="true">绝育情况</text>
-    </view>
-    <view class="itemname2">
-      <text user-select="true">{{cat.isSterilization}}</text>
-    </view>
-  </view>
-  <view wx:if="{{cat.sterilizationTime}}" class="flex-wrp" style="flex-direction:column;">
-    <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-      <text user-select="true">绝育情况</text>
-    </view>
-    <view class="itemname2">
-      <text user-select="true">{{cat.sterilizationTime}}</text>
-    </view>
-  </view>
-  <view wx:if="{{cat.birthTime}}" class="flex-wrp" style="flex-direction:column;">
-    <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-      <text user-select="true">出生时间</text>
-    </view>
-    <view class="itemname2">
-      <text user-select="true">{{cat.birthTime}}</text>
-    </view>
-  </view>
-  <view wx:if="{{cat.character}}" class="flex-wrp" style="flex-direction:column;">
-    <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-      <text user-select="true">性格</text>
-    </view>
-    <view class="itemname2">
-      <text user-select="true">{{cat.character}}</text>
-    </view>
-  </view>
-  <view wx:if="{{cat.firstSightingTime}}" class="flex-wrp" style="flex-direction:column;">
-    <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-      <text user-select="true">第一次目击时间</text>
-    </view>
-    <view class="itemname2">
-      <text user-select="true">{{cat.firstSightingTime}}</text>
-    </view>
-  </view>
-  <view wx:if="{{cat.missingTime}}" class="flex-wrp" style="flex-direction:column;">
-    <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-      <text user-select="true">失踪时间</text>
-    </view>
-    <view class="itemname2">
-      <text user-select="true">{{cat.missingTime}}</text>
-    </view>
-  </view>
-  <view wx:if="{{cat.deliveryTime}}" class="flex-wrp" style="flex-direction:column;">
-    <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-      <text user-select="true">送养时间</text>
-    </view>
-    <view class="itemname2">
-      <text user-select="true">{{cat.deliveryTime}}</text>
-    </view>
-  </view>
-  <view wx:if="{{cat.deathTime}}" class="flex-wrp" style="flex-direction:column;">
-    <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-      <text user-select="true">离世时间</text>
-    </view>
-    <view class="itemname2">
-      <text user-select="true">{{cat.deathTime}}</text>
-    </view>
-  </view>
-  <view wx:if="{{cat.appearance}}" class="flex-wrp" style="flex-direction:column;">
-    <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-      <text user-select="true">外貌</text>
-    </view>
-    <view class="itemname2">
-      <text user-select="true">{{cat.appearance}}</text>
-    </view>
-  </view>
-  <view wx:if="{{cat.moreInformation}}" class="flex-wrp" style="flex-direction:column;">
-    <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-      <text user-select="true">更多</text>
-    </view>
-    <view class="itemname2">
-      <text user-select="true">{{cat.moreInformation}}</text>
-    </view>
-  </view>
-  <view wx:if="{{cat.relationship}}" class="flex-wrp" style="flex-direction:column;">
-    <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-      <text user-select="true">关系</text>
-    </view>
-    <view class="itemname2">
-      <text user-select="true">{{cat.relationship}}</text>
-    </view>
-  </view>
-
+<view class="head1">
+  <text user-select="true">姓名</text>
 </view>
+<input data-key='name' bindinput="inputText" class="edit-input" value="{{cat.name}}" />
+
+<view class="flex-wrp" style="flex-direction:column;">
+  <view class="head1">
+    <text user-select="true">外貌</text>
+  </view>
+  <input data-key='appearance' bindinput="inputText" class="edit-input" value="{{cat.appearance}}" />
+</view>
+
+<!-- <view class="itemname1"> -->
+<view wx:if="{{cat.furColor}}" class="flex-wrp" style="flex-direction:column;">
+  <view class="head1">
+    <text user-select="true">毛色</text>
+  </view>
+  <picker mode="selector" range='{{pickers.furColor}}' value='0' bindchange='pickerChange' data-key='furColor'>{{cat.furColor == undefined? '请选择': cat.furColor}}</picker>
+  <input bindblur="bindblur" class="edit-input" value="{{cat.furColor}}" />
+</view>
+<view wx:if="{{cat.gender}}" class="flex-wrp" style="flex-direction:column;">
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <text user-select="true">性别</text>
+  </view>
+  <view class="itemname2">
+    <text user-select="true">{{cat.gender}}</text>
+  </view>
+</view>
+<view wx:if="{{cat.status}}" class="flex-wrp" style="flex-direction:column;">
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <text user-select="true">状况</text>
+  </view>
+  <view class="itemname2">
+    <text user-select="true">{{cat.status}}</text>
+  </view>
+</view>
+<view wx:if="{{cat.isSterilization}}" class="flex-wrp" style="flex-direction:column;">
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <text user-select="true">绝育情况</text>
+  </view>
+  <view class="itemname2">
+    <text user-select="true">{{cat.isSterilization}}</text>
+  </view>
+</view>
+<view wx:if="{{cat.sterilizationTime}}" class="flex-wrp" style="flex-direction:column;">
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <text user-select="true">绝育时间</text>
+  </view>
+  <view class="itemname2">
+    <text user-select="true">{{cat.sterilizationTime}}</text>
+  </view>
+</view>
+<view wx:if="{{cat.birthTime}}" class="flex-wrp" style="flex-direction:column;">
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <text user-select="true">出生时间</text>
+  </view>
+  <view class="itemname2">
+    <text user-select="true">{{cat.birthTime}}</text>
+  </view>
+</view>
+<view wx:if="{{cat.character}}" class="flex-wrp" style="flex-direction:column;">
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <text user-select="true">性格</text>
+  </view>
+  <view class="itemname2">
+    <text user-select="true">{{cat.character}}</text>
+  </view>
+</view>
+<view wx:if="{{cat.firstSightingTime}}" class="flex-wrp" style="flex-direction:column;">
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <text user-select="true">第一次目击时间</text>
+  </view>
+  <view class="itemname2">
+    <text user-select="true">{{cat.firstSightingTime}}</text>
+  </view>
+</view>
+<view wx:if="{{cat.missingTime}}" class="flex-wrp" style="flex-direction:column;">
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <text user-select="true">失踪时间</text>
+  </view>
+  <view class="itemname2">
+    <text user-select="true">{{cat.missingTime}}</text>
+  </view>
+</view>
+<view wx:if="{{cat.deliveryTime}}" class="flex-wrp" style="flex-direction:column;">
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <text user-select="true">送养时间</text>
+  </view>
+  <view class="itemname2">
+    <text user-select="true">{{cat.deliveryTime}}</text>
+  </view>
+</view>
+<view wx:if="{{cat.deathTime}}" class="flex-wrp" style="flex-direction:column;">
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <text user-select="true">离世时间</text>
+  </view>
+  <view class="itemname2">
+    <text user-select="true">{{cat.deathTime}}</text>
+  </view>
+</view>
+
+<view wx:if="{{cat.moreInformation}}" class="flex-wrp" style="flex-direction:column;">
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <text user-select="true">更多</text>
+  </view>
+  <view class="itemname2">
+    <text user-select="true">{{cat.moreInformation}}</text>
+  </view>
+</view>
+<view wx:if="{{cat.relationship}}" class="flex-wrp" style="flex-direction:column;">
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <text user-select="true">关系</text>
+  </view>
+  <view class="itemname2">
+    <text user-select="true">{{cat.relationship}}</text>
+  </view>
+</view>
+
+<!-- </view> -->
 
 
 <view wx:if="{{cat.relatedCat[0]}}" class="itemname1">
-  <navigator style= 'margin-right:20rpx;' wx:for="{{cat.relatedCat}}" url="/pages/catDetail/catDetail?cat_name={{item.rela}}">
+  <navigator style='margin-right:20rpx;' wx:for="{{cat.relatedCat}}" url="/pages/catDetail/catDetail?cat_name={{item.rela}}">
     <view style='flex-shrink:0; box-sizing:border-box; width:90rpx;'>
       <image style="width:90rpx;height:90rpx;" src="{{url}}{{item.rela}}.png"></image>
       <view style="text-align: center;  color:#353535;"> \n {{item.rela}} </view>
@@ -178,7 +175,7 @@
     <video mode="widthFix" class="cat_image" src="{{url}}{{cat.name}}{{item.num}}.mp4" style="width: 90%;">
     </video>
   </view>
-
   <text> \n </text>
-
 </block>
+
+<button class='primary' bindtap='upload' style="margin: 0;">确定提交</button>
