@@ -17,7 +17,7 @@
 
   <text> \n </text>
 
-  <navigator url="/pages/花色/花色?classification=4">
+  <navigator url="/pages/花色/花色?classification=3">
     <view class="catitem">
       <image lazy-load='true' class='avator' src="{{url}}霖霖.png" mode='aspectFill'></image>
       <view class="cat-name">三花和玳瑁</view>
@@ -26,7 +26,7 @@
 
   <view class="divLine"></view>
 
-  <navigator url="/pages/花色/花色?classification=2">
+  <navigator url="/pages/花色/花色?classification=1">
     <view class="catitem">
       <image lazy-load='true' class='avator' src="{{url}}炸鸡.png" mode='aspectFill'></image>
       <view class="cat-name">橘猫和橘白</view>
@@ -35,7 +35,7 @@
 
   <view class="divLine"></view>
 
-  <navigator url="/pages/花色/花色?classification=5">
+  <navigator url="/pages/花色/花色?classification=4">
     <view class="catitem">
       <image lazy-load='true' class='avator' src="{{url}}大白.png" mode='aspectFill'></image>
       <view class="cat-name">纯色</view>
@@ -45,7 +45,7 @@
 
   <view class="divLine"></view>
 
-  <navigator url="/pages/花色/花色?classification=3">
+  <navigator url="/pages/花色/花色?classification=2">
     <view class="catitem">
       <image lazy-load='true' class='avator' src="{{url}}太郎.png" mode='aspectFill'></image>
       <view class="cat-name">奶牛</view>
@@ -54,7 +54,7 @@
 
   <view class="divLine"></view>
 
-  <navigator url="/pages/花色/花色?classification=1">
+  <navigator url="/pages/花色/花色?classification=0">
     <view class="catitem">
       <image lazy-load='true' class='avator' src="{{url}}嫖嫖.png" mode='aspectFill'></image>
       <view class="cat-name">狸花</view>

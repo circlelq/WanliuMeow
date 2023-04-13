@@ -106,7 +106,6 @@ Page({
 
   },
 
-
   clickCat(e, isCatName = false) {
     const cat_name = isCatName ? e : e.currentTarget.dataset.cat_name;
     const detail_url = '/pages/catDetail/catDetail';
