@@ -3,11 +3,23 @@ const app = getApp();
 
 Page({
   data: {
-    cat: {},
+    cat: {
+      classification: 0
+    },
     url: app.globalData.url,
     nums: [{
       num: 1
     }, ],
+    classificationIndex: 0,
+    classificationArray: ['狸花', '橘猫及橘白', '奶牛', '玳瑁及三花', '纯色'],
+  },
+
+  bindPickerChangeClassification: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      classificationIndex: e.detail.value,
+      "cat.classification": e.detail.value
+    })
   },
 
   onLoad: function (options) {
@@ -36,24 +48,25 @@ Page({
     });
   },
 
- upload() {
+  upload() {
     wx.showLoading({
       title: '更新中...',
     });
-    app.mpServerless.db.collection('WanliuMeow').updateMany(
-      { _id: this.data.cat._id }, {
+    app.mpServerless.db.collection('WanliuMeow').updateMany({
+        _id: this.data.cat._id
+      }, {
         $set: {
-          addPhotoNumber : this.data.cat.addPhotoNumber,
-          furColor : this.data.cat.furColor,
-          classification : this.data.cat.classification,
-          gender : this.data.cat.gender,
-          status : this.data.cat.status,
-          isSterilization : this.data.cat.isSterilization,
-          sterilizationTime : this.data.cat.sterilizationTime,
-          character : this.data.cat.character,
-          firstSightingTime : this.data.cat.firstSightingTime,
-          appearance : this.data.cat.appearance,
-          relationship : this.data.cat.relationship,
+          addPhotoNumber: this.data.cat.addPhotoNumber,
+          furColor: this.data.cat.furColor,
+          classification: this.data.cat.classification,
+          gender: this.data.cat.gender,
+          status: this.data.cat.status,
+          isSterilization: this.data.cat.isSterilization,
+          sterilizationTime: this.data.cat.sterilizationTime,
+          character: this.data.cat.character,
+          firstSightingTime: this.data.cat.firstSightingTime,
+          appearance: this.data.cat.appearance,
+          relationship: this.data.cat.relationship,
           lastEditTime: Date(),
         }
       }).then(res => {

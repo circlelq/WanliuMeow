@@ -24,10 +24,11 @@
   </view>
 </view>
 
-<view class="head1">
-  <text user-select="true">姓名</text>
+<view class="itemname1">
+  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+    <view class="cat-card">{{cat.name}}</view>
+  </view>
 </view>
-<input data-key='name' bindinput="inputText" class="edit-input" value="{{cat.name}}" />
 
 <view class="flex-wrp" style="flex-direction:column;">
   <view class="head1">
@@ -36,14 +37,24 @@
   <input data-key='appearance' bindinput="inputText" class="edit-input" value="{{cat.appearance}}" />
 </view>
 
-<!-- <view class="itemname1"> -->
-<view wx:if="{{cat.furColor}}" class="flex-wrp" style="flex-direction:column;">
+<view class="flex-wrp" style="flex-direction:column;">
+  <view class="head1">
+    <text user-select="true">毛色分类</text>
+  </view>
+  <picker bindchange="bindPickerChangeClassification" value="{{classificationIndex}}" range="{{classificationArray}}">
+    <view class="edit-input">
+      {{classificationArray[classificationIndex]}}
+    </view>
+  </picker>
+</view>
+
+<view class="flex-wrp" style="flex-direction:column;">
   <view class="head1">
     <text user-select="true">毛色</text>
   </view>
-  <picker mode="selector" range='{{pickers.furColor}}' value='0' bindchange='pickerChange' data-key='furColor'>{{cat.furColor == undefined? '请选择': cat.furColor}}</picker>
   <input bindblur="bindblur" class="edit-input" value="{{cat.furColor}}" />
 </view>
+
 <view wx:if="{{cat.gender}}" class="flex-wrp" style="flex-direction:column;">
   <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
     <text user-select="true">性别</text>
