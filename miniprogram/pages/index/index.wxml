@@ -96,7 +96,7 @@
 <text> \n </text>
 
 <view hidden="{{currentTab!==1}}">
-  <navigator block wx:for="{{fostered_cat}}" wx:key="name" url="/pages/catDetail/catDetail?cat_name={{item.name}}">
+  <navigator block wx:for="{{fostered_cat}}" wx:key="_id" url="/pages/catDetail/catDetail?_id={{item._id}}">
     <view class="catitem">
       <image lazy-load='true' class='avator' src="{{url}}{{item.name}}.png" mode='aspectFill'></image>
       <view class="cat-name">{{item.name}}</view>
@@ -108,7 +108,7 @@
 <!-- 休学 -->
 
 <view hidden="{{currentTab!==2}}">
-  <navigator block wx:for="{{unknown_cat}}" wx:key="name" url="/pages/catDetail/catDetail?cat_name={{item.name}}">
+  <navigator block wx:for="{{unknown_cat}}" wx:key="_id" url="/pages/catDetail/catDetail?_id={{item._id}}">
     <view class="catitem">
       <image lazy-load='true' class='avator' src="{{url}}{{item.name}}.png" mode='aspectFill'></image>
       <view class="cat-name">{{item.name}}</view>
@@ -120,7 +120,7 @@
 <!-- 喵星 -->
 
 <view hidden="{{currentTab!==3}}">
-  <navigator block wx:for="{{dead_cat}}" wx:key="name" url="/pages/catDetail/catDetail?cat_name={{item.name}}">
+  <navigator block wx:for="{{dead_cat}}" wx:key="_id" url="/pages/catDetail/catDetail?_id={{item._id}}">
     <view class="catitem">
       <image lazy-load='true' class='avator' src="{{url}}{{item.name}}.png" mode='aspectFill'></image>
       <view class="cat-name">{{item.name}}</view>

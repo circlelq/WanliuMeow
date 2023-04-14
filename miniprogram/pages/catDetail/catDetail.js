@@ -3,35 +3,39 @@ const app = getApp();
 
 Page({
   data: {
-    cat: {
-      classification: 0
-    },
+    cat: {},
     url: app.globalData.url,
     nums: [{
       num: 1
     }, ],
-    classificationIndex: 0,
+    classification: 0,
     classificationArray: ['狸花', '橘猫及橘白', '奶牛', '玳瑁及三花', '纯色'],
+    pickers: {
+      gender: ['', '公', '母'],
+      isSterilization: ['', '已绝育', '未绝育'],
+      status: ['', '健康', '送养', '失踪', '离世'],
+      character: ['', '亲人可抱', '亲人不可抱 可摸', '薛定谔亲人', '吃东西时可以一直摸', '吃东西时可以摸一下', '怕人 安全距离 1m 以内', '怕人 安全距离 1m 以外'],
+    },
+    picker_selected: {},
   },
 
   bindPickerChangeClassification: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      classificationIndex: e.detail.value,
+      classification: e.detail.value,
       "cat.classification": e.detail.value
     })
   },
 
   onLoad: function (options) {
     _id = options._id;
-    console.log(_id)
     app.mpServerless.db.collection('WanliuMeow').find({
       _id: _id,
     }, {}).then(res => {
-      console.log(res)
+      // console.log(res)
       this.setData({
         cat: res.result[0],
-        photoscr: "https://pku-1257850266.cos.ap-beijing.myqcloud.com/cat/" + res.result[0].name + ".png"
+        classification: res.result[0].classification,
       });
     }).then(res => {
       var number = 0
@@ -45,6 +49,45 @@ Page({
         });
         number++
       }
+    }).then(res => {
+      var picker_selected = {};
+      const pickers = this.data.pickers;
+      console.log(pickers)
+      for (const key in pickers) {
+        const items = pickers[key];
+        const value = this.data.cat[key];
+        const idx = items.findIndex((v) => v === value);
+        if (idx === -1 && typeof value === "number") {
+          picker_selected[key] = value;
+        } else {
+          picker_selected[key] = idx;
+        }
+      }
+      this.setData({
+        picker_selected: picker_selected,
+      });
+    })
+  },
+
+  // 选择日期
+  bindDateChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    const key = e.currentTarget.dataset.key;
+    const value = e.detail.value;
+    console.log(key)
+    this.setData({
+      ['cat.' + key]: value
+    })
+  },
+
+  // 选择了东西
+  bindPickerChange(e) {
+    const key = e.currentTarget.dataset.key;
+    const index = e.detail.value;
+    var value = this.data.pickers[key][index];
+    console.log(value)
+    this.setData({
+      ['cat.' + key]: value
     });
   },
 
