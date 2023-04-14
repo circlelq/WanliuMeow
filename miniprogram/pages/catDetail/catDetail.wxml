@@ -9,12 +9,10 @@
     <!-- 猫叫声 -->
     <view class="sound">
       <block wx:for="{{audioArr}}" wx:key="content" wx:for-item="v" wx:for-index="key">
-
         <!-- 默认状态 未播放 -->
         <view wx:if="{{!v.bl}}" bindtap='audioPlay' data-key="{{key}}" data-id="{{v.id}}" data-bl="{{v.bl}}">
           <image class="play" src="/pages/images/play.png"></image>
         </view>
-
         <!-- 当前正在播放状态 -->
         <view wx:if="{{v.bl}}" bindtap='audioStop' data-key="{{key}}" data-id="{{v.id}}" data-bl="{{v.bl}}">
           <image class="play" src="/pages/images/pause.png"></image>
@@ -41,9 +39,9 @@
   <view class="head1">
     <text user-select="true">毛色分类</text>
   </view>
-  <picker bindchange="bindPickerChangeClassification" value="{{classificationIndex}}" range="{{classificationArray}}">
+  <picker bindchange="bindPickerChangeClassification" range="{{classificationArray}}">
     <view class="edit-input">
-      {{classificationArray[classificationIndex]}}
+      {{classificationArray[classification]}}
     </view>
   </picker>
 </view>
@@ -52,109 +50,137 @@
   <view class="head1">
     <text user-select="true">毛色</text>
   </view>
-  <input bindblur="bindblur" class="edit-input" value="{{cat.furColor}}" />
+  <input data-key='furColor' bindinput="inputText" class="edit-input" value="{{cat.furColor}}" />
 </view>
 
-<view wx:if="{{cat.gender}}" class="flex-wrp" style="flex-direction:column;">
-  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+<view class="flex-wrp" style="flex-direction:column;">
+  <view class="head1">
     <text user-select="true">性别</text>
   </view>
-  <view class="itemname2">
-    <text user-select="true">{{cat.gender}}</text>
-  </view>
-</view>
-<view wx:if="{{cat.status}}" class="flex-wrp" style="flex-direction:column;">
-  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-    <text user-select="true">状况</text>
-  </view>
-  <view class="itemname2">
-    <text user-select="true">{{cat.status}}</text>
-  </view>
-</view>
-<view wx:if="{{cat.isSterilization}}" class="flex-wrp" style="flex-direction:column;">
-  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-    <text user-select="true">绝育情况</text>
-  </view>
-  <view class="itemname2">
-    <text user-select="true">{{cat.isSterilization}}</text>
-  </view>
-</view>
-<view wx:if="{{cat.sterilizationTime}}" class="flex-wrp" style="flex-direction:column;">
-  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-    <text user-select="true">绝育时间</text>
-  </view>
-  <view class="itemname2">
-    <text user-select="true">{{cat.sterilizationTime}}</text>
-  </view>
-</view>
-<view wx:if="{{cat.birthTime}}" class="flex-wrp" style="flex-direction:column;">
-  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-    <text user-select="true">出生时间</text>
-  </view>
-  <view class="itemname2">
-    <text user-select="true">{{cat.birthTime}}</text>
-  </view>
-</view>
-<view wx:if="{{cat.character}}" class="flex-wrp" style="flex-direction:column;">
-  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-    <text user-select="true">性格</text>
-  </view>
-  <view class="itemname2">
-    <text user-select="true">{{cat.character}}</text>
-  </view>
-</view>
-<view wx:if="{{cat.firstSightingTime}}" class="flex-wrp" style="flex-direction:column;">
-  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-    <text user-select="true">第一次目击时间</text>
-  </view>
-  <view class="itemname2">
-    <text user-select="true">{{cat.firstSightingTime}}</text>
-  </view>
-</view>
-<view wx:if="{{cat.missingTime}}" class="flex-wrp" style="flex-direction:column;">
-  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-    <text user-select="true">失踪时间</text>
-  </view>
-  <view class="itemname2">
-    <text user-select="true">{{cat.missingTime}}</text>
-  </view>
-</view>
-<view wx:if="{{cat.deliveryTime}}" class="flex-wrp" style="flex-direction:column;">
-  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-    <text user-select="true">送养时间</text>
-  </view>
-  <view class="itemname2">
-    <text user-select="true">{{cat.deliveryTime}}</text>
-  </view>
-</view>
-<view wx:if="{{cat.deathTime}}" class="flex-wrp" style="flex-direction:column;">
-  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-    <text user-select="true">离世时间</text>
-  </view>
-  <view class="itemname2">
-    <text user-select="true">{{cat.deathTime}}</text>
-  </view>
+  <picker mode="selector" data-key='gender' bindchange="bindPickerChange" range="{{pickers.gender}}" value='{{picker_selected.gender}}'>
+    <view class="edit-input">
+      {{cat.gender}}
+    </view>
+  </picker>
 </view>
 
-<view wx:if="{{cat.moreInformation}}" class="flex-wrp" style="flex-direction:column;">
-  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+<view class="flex-wrp" style="flex-direction:column;">
+  <view class="head1">
+    <text user-select="true">状况</text>
+  </view>
+  <picker mode="selector" data-key='status' bindchange="bindPickerChange" range="{{pickers.status}}" value='{{picker_selected.status}}'>
+    <view class="edit-input">
+      {{cat.status}}
+    </view>
+  </picker>
+</view>
+
+<view class="flex-wrp" style="flex-direction:column;">
+  <view class="head1">
+    <text user-select="true">绝育情况</text>
+  </view>
+  <picker mode="selector" data-key='isSterilization' bindchange="bindPickerChange" range="{{pickers.isSterilization}}" value='{{picker_selected.isSterilization}}'>
+    <view class="edit-input">
+      {{cat.isSterilization}}
+    </view>
+  </picker>
+</view>
+
+<view class="flex-wrp" style="flex-direction:column;">
+  <view class="head1">
+    <text user-select="true">绝育时间</text>
+  </view>
+  <picker mode="date" data-key='sterilizationTime' bindchange="bindDateChange" value='{{cat.sterilizationTime}}'>
+    <view class="edit-input">
+      {{cat.sterilizationTime}}
+    </view>
+  </picker>
+</view>
+
+<view class="flex-wrp" style="flex-direction:column;">
+  <view class="head1">
+    <text user-select="true">出生时间</text>
+  </view>
+  <input data-key='birthTime' bindinput="inputText" class="edit-input" value="{{cat.birthTime}}" />
+</view>
+
+<view class="flex-wrp" style="flex-direction:column;">
+  <view class="head1">
+    <text user-select="true">性格</text>
+  </view>
+  <picker mode="selector" data-key='character' bindchange="bindPickerChange" range="{{pickers.character}}" value='{{picker_selected.character}}'>
+    <view class="edit-input">
+      {{cat.character}}
+    </view>
+  </picker>
+</view>
+
+<view class="flex-wrp" style="flex-direction:column;">
+  <view class="head1">
+    <text user-select="true">第一次目击时间</text>
+  </view>
+  <input data-key='firstSightingTime' bindinput="inputText" class="edit-input" value="{{cat.firstSightingTime}}" />
+</view>
+
+<view class="flex-wrp" style="flex-direction:column;">
+  <view class="head1">
+    <text user-select="true">失踪时间</text>
+  </view>
+  <picker mode="date" fields="month" data-key='missingTime' bindchange="bindDateChange" value='{{cat.missingTime}}'>
+    <view class="edit-input">
+      {{cat.missingTime}}
+    </view>
+  </picker>
+</view>
+
+<view class="flex-wrp" style="flex-direction:column;">
+  <view class="head1">
+    <text user-select="true">绝育时间</text>
+  </view>
+  <picker mode="date" data-key='status' bindchange="bindDateChange" value='{{cat.sterilizationTime}}'>
+    <view class="edit-input">
+      {{cat.sterilizationTime}}
+    </view>
+  </picker>
+</view>
+
+<view class="flex-wrp" style="flex-direction:column;">
+  <view class="head1">
+    <text user-select="true">送养时间</text>
+  </view>
+  <picker mode="date" fields="month" data-key='deliveryTime' bindchange="bindDateChange" value='{{cat.deliveryTime}}'>
+    <view class="edit-input">
+      {{cat.deliveryTime}}
+    </view>
+  </picker>
+</view>
+
+<view class="flex-wrp" style="flex-direction:column;">
+  <view class="head1">
+    <text user-select="true">离世时间</text>
+  </view>
+  <picker mode="date" fields="month" data-key='deathTime' bindchange="bindDateChange" value='{{cat.deathTime}}'>
+    <view class="edit-input">
+      {{cat.deathTime}}
+    </view>
+  </picker>
+</view>
+
+<view class="flex-wrp" style="flex-direction:column;">
+  <view class="head1">
     <text user-select="true">更多</text>
   </view>
-  <view class="itemname2">
-    <text user-select="true">{{cat.moreInformation}}</text>
-  </view>
+  <input data-key='moreInformation' bindinput="inputText" class="edit-input" value="{{cat.moreInformation}}" />
 </view>
-<view wx:if="{{cat.relationship}}" class="flex-wrp" style="flex-direction:column;">
-  <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+
+<view class="flex-wrp" style="flex-direction:column;">
+  <view class="head1">
     <text user-select="true">关系</text>
   </view>
-  <view class="itemname2">
-    <text user-select="true">{{cat.relationship}}</text>
-  </view>
+  <input data-key='relationship' bindinput="inputText" class="edit-input" value="{{cat.relationship}}" />
 </view>
 
 <!-- </view> -->
-
 
 <view wx:if="{{cat.relatedCat[0]}}" class="itemname1">
   <navigator style='margin-right:20rpx;' wx:for="{{cat.relatedCat}}" url="/pages/catDetail/catDetail?cat_name={{item.rela}}">
@@ -164,8 +190,6 @@
     </view>
   </navigator>
 </view>
-
-
 
 <text> \n </text>
 
