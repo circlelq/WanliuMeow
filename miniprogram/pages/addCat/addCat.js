@@ -3,7 +3,10 @@ const app = getApp();
 
 Page({
   data: {
-    cat: {},
+    cat: {
+      status: '健康',
+      classification: 0
+    },
     url: app.globalData.url,
     nums: [{
       num: 1
@@ -28,45 +31,6 @@ Page({
   },
 
   onLoad: function (options) {
-    _id = options._id;
-    app.mpServerless.db.collection('WanliuMeow').find({
-      _id: _id,
-    }, {}).then(res => {
-      // console.log(res)
-      this.setData({
-        cat: res.result[0],
-        classification: res.result[0].classification,
-      });
-    }).then(res => {
-      var number = 0
-      var photoNum = 0
-      for (var j in this.data.cat.photos) {
-        var photoNum = {
-          num: photoNum
-        }
-        this.setData({
-          photoNums: this.data.photoNums.concat(photoNum),
-        });
-        number++
-      }
-    }).then(res => {
-      var picker_selected = {};
-      const pickers = this.data.pickers;
-      console.log(pickers)
-      for (const key in pickers) {
-        const items = pickers[key];
-        const value = this.data.cat[key];
-        const idx = items.findIndex((v) => v === value);
-        if (idx === -1 && typeof value === "number") {
-          picker_selected[key] = value;
-        } else {
-          picker_selected[key] = idx;
-        }
-      }
-      this.setData({
-        picker_selected: picker_selected,
-      });
-    })
   },
 
   // 选择日期
@@ -95,10 +59,8 @@ Page({
     wx.showLoading({
       title: '更新中...',
     });
-    app.mpServerless.db.collection('WanliuMeow').updateMany({
-        _id: this.data.cat._id
-      }, {
-        $set: {
+    app.mpServerless.db.collection('WanliuMeow').insertOne({
+          name: this.data.cat.name,
           addPhotoNumber: this.data.cat.addPhotoNumber,
           furColor: this.data.cat.furColor,
           classification: this.data.cat.classification,
@@ -116,7 +78,6 @@ Page({
           birthTime: this.data.cat.birthTime,
           lastEditTime: Date(),
           userId: app.globalData.userId,
-        }
       }).then(res => {
         wx.showToast({
           icon: 'success',
