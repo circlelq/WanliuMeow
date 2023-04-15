@@ -36,15 +36,22 @@ Page({
     this.setData({
       userId: result.user.userId
     });
-    console.log(app.globalData.isAdministrator)
     app.mpServerless.db.collection('WanliuMeowAdministrator').find({
       userId: result.user.userId
     }, ).then(res => {
-      if (res.result.length > 0){
-      app.globalData.isAdministrator = true
-      console.log(res.result)
+      if (res.result.length > 0) {
+        app.globalData.isAdministrator = true
       }
     }).catch(console.error);
+  },
+
+  editCat(e) {
+    const _id = e.currentTarget.dataset._id;
+    if (app.globalData.isAdministrator) {
+      wx.navigateTo({
+        url: '/pages/editCat/editCat?_id=' + _id,
+      });
+    }
   },
 
   imageTap(e) {

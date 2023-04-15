@@ -1,16 +1,1 @@
 /* pages/catDetail/catDetail.wxss */
-
-.edit-input {
-  display: block;
-  font-size: 35rpx;
-  font-weight: 100;
-  margin-left: 40rpx;
-  margin-right: 40rpx;
-  padding: 5px 5px;
-  background: none;
-  border: none;
-  border-bottom: 1px solid #DFDFDF;
-  color: #7CA698;
-  /* width: 100%; */
-  margin-top: 10rpx;
-}

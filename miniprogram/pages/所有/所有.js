@@ -12,6 +12,15 @@ Page({
     url: app.globalData.url,
   },
 
+  editCat(e) {
+    const _id = e.currentTarget.dataset._id;
+    if (app.globalData.isAdministrator) {
+      wx.navigateTo({
+        url: '/pages/editCat/editCat?_id=' + _id,
+      });
+    }
+  },
+
   onLoad: function (options) {
     this.loadMoreCat();
   },
