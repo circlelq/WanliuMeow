@@ -5,9 +5,6 @@ Page({
   data: {
     cat: {},
     url: app.globalData.url,
-    nums: [{
-      num: 1
-    }, ],
     classification: 0,
     classificationArray: ['狸花', '橘猫及橘白', '奶牛', '玳瑁及三花', '纯色'],
     pickers: {

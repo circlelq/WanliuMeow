@@ -28,9 +28,6 @@
   </view>
 </view>
 
-
-
-
 <view class="itemname1">
   <view wx:if="{{cat.furColor}}" class="flex-wrp" style="flex-direction:column;">
     <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
@@ -144,41 +141,31 @@
       <text user-select="true">{{cat.relationship}}</text>
     </view>
   </view>
-
 </view>
 
-
-<view wx:if="{{cat.relatedCat[0]}}" class="itemname1">
-  <navigator style= 'margin-right:20rpx;' wx:for="{{cat.relatedCat}}" url="/pages/catDetail/catDetail?cat_name={{item.rela}}">
+<view wx:if="{{relatedCatsId}}" class="itemname1">
+  <navigator style='margin-right:20rpx;' wx:for="{{relatedCatsId}}" url="/pages/catDetail/catDetail?_id={{relatedCatsId[index]._id}}">
     <view style='flex-shrink:0; box-sizing:border-box; width:90rpx;'>
-      <image style="width:90rpx;height:90rpx;" src="{{url}}{{item.rela}}.png"></image>
-      <view style="text-align: center;  color:#353535;"> \n {{item.rela}} </view>
+      <image style="width:90rpx;height:90rpx;" src="{{url}}{{relatedCatsId[index].name}}.png"></image>
+      <view style="text-align: center;  color:#353535;"> \n {{relatedCatsId[index].name}} </view>
     </view>
   </navigator>
 </view>
 
-
-
 <text> \n </text>
 
-<block wx:for="{{cat.nums}}">
-
+<block wx:for="{{photoArray}}">
   <view style="display:flex; justify-content:center; align-items:center;">
-    <image mode="widthFix" class="cat_image" src="{{url}}{{cat.name}}{{item.num}}.jpg" style="width: 90%;">
+    <image mode="widthFix" class="cat_image" src="{{url}}{{cat.name}}{{message}}.jpg" style="width: 90%;">
     </image>
   </view>
-
   <text> \n </text>
-
 </block>
 
 <block wx:for="{{MovieNums}}">
-
   <view style="display:flex; justify-content:center; align-items:center;">
     <video mode="widthFix" class="cat_image" src="{{url}}{{cat.name}}{{item.num}}.mp4" style="width: 90%;">
     </video>
   </view>
-
   <text> \n </text>
-
 </block>

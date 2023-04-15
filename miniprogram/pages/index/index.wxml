@@ -2,7 +2,7 @@
 
 
 <view class="circle">
-    <image lazy-load='true' bindtap="imageTap"  class='avator' src="/pages/images/huihui.png" mode='aspectFill'></image>
+  <image lazy-load='true' bindtap="imageTap" class='avator' src="/pages/images/huihui.png" mode='aspectFill'></image>
   <input class='search' placeholder="请输入猫咪名称" bindconfirm="bindconfirmT" placeholder-class="placeholder" />
 </view>
 

@@ -1,4 +1,3 @@
-
 <view class="itemname1">
   <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
     <!-- 猫叫声 -->
@@ -176,6 +175,13 @@
   <input data-key='relationship' bindinput="inputText" class="edit-input" value="{{cat.relationship}}" />
 </view>
 
+<view class="flex-wrp" style="flex-direction:column;">
+  <view class="head1">
+    <text user-select="true">相关的猫，用一个空格隔开</text>
+  </view>
+  <input data-key='relatedCats' bindinput="inputText" class="edit-input" value="{{cat.relatedCats}}" />
+</view>
+
 <!-- </view> -->
 
 <view wx:if="{{cat.relatedCat[0]}}" class="itemname1">
@@ -189,24 +195,5 @@
 
 <text> \n </text>
 
-<block wx:for="{{cat.nums}}">
-
-  <view style="display:flex; justify-content:center; align-items:center;">
-    <image mode="widthFix" class="cat_image" src="{{url}}{{cat.name}}{{item.num}}.jpg" style="width: 90%;">
-    </image>
-  </view>
-
-  <text> \n </text>
-
-</block>
-
-<block wx:for="{{MovieNums}}">
-
-  <view style="display:flex; justify-content:center; align-items:center;">
-    <video mode="widthFix" class="cat_image" src="{{url}}{{cat.name}}{{item.num}}.mp4" style="width: 90%;">
-    </video>
-  </view>
-  <text> \n </text>
-</block>
 
 <button class='primary' bindtap='upload' style="margin: 0;">确定提交</button>

@@ -111,16 +111,17 @@ with open('all.json', 'w', encoding='utf-8') as f:
                     f.write('    {"rela":"' + i + '"}')
             f.write('  ], \n')
 
-        if newLine['addPhotoNumber'] > 0:
-            f.write('  "nums":[\n')
+        if newLine['relationship'] != '':
+            f.write('  "relatedCats": "')
             firstRela = 0
-            for i in range(newLine['addPhotoNumber']):
-                if firstRela == 0:
-                    firstRela = 1
-                else:
-                    f.write(',\n')
-                f.write('    {"num":"' + str(i+1) + '"}')
-            f.write('  ], \n')
+            for i in names:
+                if i in newLine['relationship'] and i != newLine['name']:
+                    if firstRela == 0:
+                        firstRela = 1
+                    else:
+                        f.write(' ')
+                    f.write(i)
+            f.write('", \n')
 
         for item in line:
             if line[item] == '':

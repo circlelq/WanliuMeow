@@ -4,11 +4,8 @@ const app = getApp();
 Page({
   data: {
     cat: {},
-
     url: app.globalData.url,
-    nums: [{
-      num: 1
-    }, ],
+    relatedCatsId: [],
   },
 
   onLoad: function (options) {
@@ -21,36 +18,34 @@ Page({
         cat: res.result[0],
       });
     }).then(res => {
-      var number = 0
-      var photoNum = 0
-      for (var j in this.data.cat.photos) {
-        var photoNum = {
-          num: photoNum
+      console.log(this.data.cat.addPhotoNumber)
+      if (this.data.cat.addPhotoNumber > 0) {
+        var photoArray = []
+        for (var photoNum = 1; photoNum <= this.data.cat.addPhotoNumber; ++photoNum) {
+          this.setData({
+            photoArray: photoArray.concat(photoNum),
+          });
+        }
+      }
+      if (this.data.cat.relatedCats) {
+        var relatedCats = this.data.cat.relatedCats.split(" ")
+        for (var i = 0; i < relatedCats.length; ++i) {
+          app.mpServerless.db.collection('WanliuMeow').find({
+            name: relatedCats[i],
+          }, {}).then(res => {
+            console.log(res)
+            this.setData({
+              relatedCatsId: this.data.relatedCatsId.concat(res.result),
+            });
+          })
+          console.log(relatedCats[i])
         }
         this.setData({
-          photoNums: this.data.photoNums.concat(photoNum),
+          relatedCats: relatedCats,
         });
-        number++
-      }
-
-      for (var i in this.data.cat.markers) {
-        var marker = [{
-          iconPath: "https://pku-1257850266.cos.ap-beijing.myqcloud.com/cat/" + encodeURIComponent(this.data.cat.name) + ".png",
-          latitude: this.data.cat.markers[i].coordinates[1],
-          longitude: this.data.cat.markers[i].coordinates[0],
-          width: 50,
-          height: 50,
-          id: number,
-        }]
-        this.setData({
-          markers: this.data.markers.concat(marker),
-        });
-        number++
       }
     });
   },
-
-
 
   //音频播放  
   audioPlay(e) {
