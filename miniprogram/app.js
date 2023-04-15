@@ -55,7 +55,7 @@ App({
   mpServerless,
 
   globalData: {
-    userInfo: null,
+    isAdministrator: false,
     url: "https://wanliu-meow-1257850266.cos.ap-nanjing.myqcloud.com/",
   },
 
