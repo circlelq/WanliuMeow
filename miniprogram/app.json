@@ -3,6 +3,8 @@
     "pages/index/index",
     "pages/about/about",
     "pages/catDetail/catDetail",
+    "pages/editCat/editCat",
+    "pages/addCat/addCat",
     "pages/logs/logs",
     "pages/所有/所有",
     "pages/花色/花色"

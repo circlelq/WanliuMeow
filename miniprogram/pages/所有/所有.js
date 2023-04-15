@@ -12,37 +12,38 @@ Page({
     url: app.globalData.url,
   },
 
+  editCat(e) {
+    const _id = e.currentTarget.dataset._id;
+    if (app.globalData.isAdministrator) {
+      wx.navigateTo({
+        url: '/pages/editCat/editCat?_id=' + _id,
+      });
+    }
+  },
 
   onLoad: function (options) {
-
     this.loadMoreCat();
-
   },
 
   onReachBottom: function () {
     this.loadMoreCat();
   },
 
-
   loadMoreCat() {
-
     const cat = this.data.cat;
-    app.mpServerless.db.collection('WanliuMeow').find(
-      {
-        status: "健康"
-      },
-      {
-        // sort: { pinyin: 1 },
-        skip: cat.length,
-        limit: 20,
-      }
-    ).then(res => {
-      const { result: data } = res;
-      this.setData({ cat: cat.concat(data) });
+    app.mpServerless.db.collection('WanliuMeow').find({
+      status: "健康"
+    }, {
+      // sort: { pinyin: 1 },
+      skip: cat.length,
+      limit: 20,
+    }).then(res => {
+      const {
+        result: data
+      } = res;
+      this.setData({
+        cat: cat.concat(data)
+      });
     }).catch(console.error);
-
   },
-
-
 })
-

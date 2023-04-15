@@ -2,15 +2,10 @@ const app = getApp();
 
 Page({
   data: {
-
-    cat_health: [],
-
-    fostered_cat: [
-    ],
-    unknown_cat: [
-    ],
-    dead_cat: [
-    ],
+    userId: undefined,
+    fostered_cat: [],
+    unknown_cat: [],
+    dead_cat: [],
     screenWidth: 0,
     screenHeight: 0,
     imgwidth: 0,
@@ -26,7 +21,7 @@ Page({
     })
   },
 
-  onLoad: function (options) {
+  async onLoad(options) {
     if (options.pageId) {
       wx.navigateTo({
         url: '/pages/cat/' + options.pageId + '/' + options.pageId,
@@ -35,6 +30,36 @@ Page({
     this.loadMoreCat_fostered();
     this.loadMoreCat_unknown();
     this.loadMoreCat_dead();
+    const {
+      result
+    } = await app.mpServerless.user.getInfo();
+    this.setData({
+      userId: result.user.userId
+    });
+    app.mpServerless.db.collection('WanliuMeowAdministrator').find({
+      userId: result.user.userId
+    }, ).then(res => {
+      if (res.result.length > 0) {
+        app.globalData.isAdministrator = true
+      }
+    }).catch(console.error);
+  },
+
+  editCat(e) {
+    const _id = e.currentTarget.dataset._id;
+    if (app.globalData.isAdministrator) {
+      wx.navigateTo({
+        url: '/pages/editCat/editCat?_id=' + _id,
+      });
+    }
+  },
+
+  imageTap(e) {
+    if (app.globalData.isAdministrator) {
+      wx.navigateTo({
+        url: '/pages/addCat/addCat'
+      })
+    }
   },
 
   onReachBottom: function () {
@@ -50,62 +75,58 @@ Page({
   },
 
   loadMoreCat_fostered() {
-
     const fostered_cat = this.data.fostered_cat;
-    app.mpServerless.db.collection('WanliuMeow').find(
-      {
-        status: "送养",
-      },
-      {
-        // sort: { pinyin: 1 },
-        skip: fostered_cat.length,
-        limit: 20,
-      }
-    ).then(res => {
-      const { result: data } = res;
-      this.setData({ fostered_cat: fostered_cat.concat(data) });
+    app.mpServerless.db.collection('WanliuMeow').find({
+      status: "送养",
+    }, {
+      // sort: { pinyin: 1 },
+      skip: fostered_cat.length,
+      limit: 20,
+    }).then(res => {
+      const {
+        result: data
+      } = res;
+      this.setData({
+        fostered_cat: fostered_cat.concat(data)
+      });
     }).catch(console.error);
-
   },
 
   loadMoreCat_unknown() {
-
     const unknown_cat = this.data.unknown_cat;
-    app.mpServerless.db.collection('WanliuMeow').find(
-      {
-        status: "失踪",
-      },
-      {
-        // sort: { pinyin: 1 },
-        skip: unknown_cat.length,
-        limit: 20,
-      }
-    ).then(res => {
-      const { result: data } = res;
-      this.setData({ unknown_cat: unknown_cat.concat(data) });
+    app.mpServerless.db.collection('WanliuMeow').find({
+      status: "失踪",
+    }, {
+      // sort: { pinyin: 1 },
+      skip: unknown_cat.length,
+      limit: 20,
+    }).then(res => {
+      const {
+        result: data
+      } = res;
+      this.setData({
+        unknown_cat: unknown_cat.concat(data)
+      });
     }).catch(console.error);
-
   },
 
   loadMoreCat_dead() {
-
     const dead_cat = this.data.dead_cat;
-    app.mpServerless.db.collection('WanliuMeow').find(
-      {
-        status: "离世",
-      },
-      {
-        // sort: { pinyin: 1 },
-        skip: dead_cat.length,
-        limit: 20,
-      }
-    ).then(res => {
-      const { result: data } = res;
-      this.setData({ dead_cat: dead_cat.concat(data) });
+    app.mpServerless.db.collection('WanliuMeow').find({
+      status: "离世",
+    }, {
+      // sort: { pinyin: 1 },
+      skip: dead_cat.length,
+      limit: 20,
+    }).then(res => {
+      const {
+        result: data
+      } = res;
+      this.setData({
+        dead_cat: dead_cat.concat(data)
+      });
     }).catch(console.error);
-
   },
-
 
   clickCat(e, isCatName = false) {
     const cat_name = isCatName ? e : e.currentTarget.dataset.cat_name;
@@ -132,7 +153,7 @@ Page({
       console.log(ops.target)
     }
     return {
-      path: 'pages/index/index',  // 路径，传递参数到指定页面。
+      path: 'pages/index/index', // 路径，传递参数到指定页面。
       success: function (res) {
         // 转发成功
         console.log("转发成功:" + JSON.stringify(res));
@@ -151,7 +172,7 @@ Page({
       console.log(ops.target)
     }
     return {
-      path: 'pages/index/index',  // 路径，传递参数到指定页面。
+      path: 'pages/index/index', // 路径，传递参数到指定页面。
       success: function (res) {
         // 转发成功
         console.log("转发成功:" + JSON.stringify(res));
@@ -174,4 +195,3 @@ Page({
   }
 
 })
-

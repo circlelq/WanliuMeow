@@ -1,4 +1,4 @@
-var cat_name = "1";
+var _id = "1";
 const app = getApp();
 
 Page({
@@ -6,29 +6,24 @@ Page({
     cat: {},
 
     url: app.globalData.url,
-    nums: [
-      { num: 1 },
-    ],
+    nums: [{
+      num: 1
+    }, ],
   },
 
   onLoad: function (options) {
-    cat_name = options.cat_name;
-    console.log(cat_name)
-    app.mpServerless.db.collection('WanliuMeow').find(
-      {
-        name: cat_name,
-      },
-      {}
-    ).then(res => {
+    _id = options._id;
+    app.mpServerless.db.collection('WanliuMeow').find({
+      _id: _id,
+    }, {}).then(res => {
       console.log(res)
-        this.setData({
-          cat: res.result[0],
-          photoscr: "https://pku-1257850266.cos.ap-beijing.myqcloud.com/cat/" + res.result[0].name + ".png"
-        });
-      }).then(res => {
+      this.setData({
+        cat: res.result[0],
+      });
+    }).then(res => {
       var number = 0
       var photoNum = 0
-      for(var j in this.data.cat.photos){
+      for (var j in this.data.cat.photos) {
         var photoNum = {
           num: photoNum
         }
@@ -37,18 +32,16 @@ Page({
         });
         number++
       }
-      
+
       for (var i in this.data.cat.markers) {
-        var marker = [
-          {
-            iconPath: "https://pku-1257850266.cos.ap-beijing.myqcloud.com/cat/" + encodeURIComponent(this.data.cat.name) + ".png",
-            latitude: this.data.cat.markers[i].coordinates[1],
-            longitude: this.data.cat.markers[i].coordinates[0],
-            width: 50,
-            height: 50,
-            id: number,
-          }
-        ]
+        var marker = [{
+          iconPath: "https://pku-1257850266.cos.ap-beijing.myqcloud.com/cat/" + encodeURIComponent(this.data.cat.name) + ".png",
+          latitude: this.data.cat.markers[i].coordinates[1],
+          longitude: this.data.cat.markers[i].coordinates[0],
+          width: 50,
+          height: 50,
+          id: number,
+        }]
         this.setData({
           markers: this.data.markers.concat(marker),
         });
@@ -57,7 +50,7 @@ Page({
     });
   },
 
-  
+
 
   //音频播放  
   audioPlay(e) {
@@ -170,4 +163,3 @@ Page({
 })
 //创建audio控件
 const myaudio = wx.createInnerAudioContext();
-

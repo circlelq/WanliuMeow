@@ -2,7 +2,7 @@
 
 
 <view class="circle">
-  <image lazy-load='true' class='avator' src="/pages/images/huihui.png" mode='aspectFill'></image>
+    <image lazy-load='true' bindtap="imageTap"  class='avator' src="/pages/images/huihui.png" mode='aspectFill'></image>
   <input class='search' placeholder="请输入猫咪名称" bindconfirm="bindconfirmT" placeholder-class="placeholder" />
 </view>
 
@@ -96,8 +96,8 @@
 <text> \n </text>
 
 <view hidden="{{currentTab!==1}}">
-  <navigator block wx:for="{{fostered_cat}}" wx:key="name" url="/pages/catDetail/catDetail?cat_name={{item.name}}">
-    <view class="catitem">
+  <navigator block wx:for="{{fostered_cat}}" wx:key="_id" url="/pages/catDetail/catDetail?_id={{item._id}}">
+    <view bindlongpress='editCat' data-_id="{{item._id}}" class="catitem">
       <image lazy-load='true' class='avator' src="{{url}}{{item.name}}.png" mode='aspectFill'></image>
       <view class="cat-name">{{item.name}}</view>
     </view>
@@ -108,8 +108,8 @@
 <!-- 休学 -->
 
 <view hidden="{{currentTab!==2}}">
-  <navigator block wx:for="{{unknown_cat}}" wx:key="name" url="/pages/catDetail/catDetail?cat_name={{item.name}}">
-    <view class="catitem">
+  <navigator block wx:for="{{unknown_cat}}" wx:key="_id" url="/pages/catDetail/catDetail?_id={{item._id}}">
+    <view bindlongpress='editCat' data-_id="{{item._id}}" class="catitem">
       <image lazy-load='true' class='avator' src="{{url}}{{item.name}}.png" mode='aspectFill'></image>
       <view class="cat-name">{{item.name}}</view>
     </view>
@@ -120,8 +120,8 @@
 <!-- 喵星 -->
 
 <view hidden="{{currentTab!==3}}">
-  <navigator block wx:for="{{dead_cat}}" wx:key="name" url="/pages/catDetail/catDetail?cat_name={{item.name}}">
-    <view class="catitem">
+  <navigator block wx:for="{{dead_cat}}" wx:key="_id" url="/pages/catDetail/catDetail?_id={{item._id}}">
+    <view bindlongpress='editCat' data-_id="{{item._id}}" class="catitem">
       <image lazy-load='true' class='avator' src="{{url}}{{item.name}}.png" mode='aspectFill'></image>
       <view class="cat-name">{{item.name}}</view>
     </view>
