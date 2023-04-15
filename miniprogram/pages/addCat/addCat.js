@@ -5,7 +5,8 @@ Page({
   data: {
     cat: {
       status: '健康',
-      classification: 0
+      classification: 0,
+      addPhotoNumber: 0,
     },
     url: app.globalData.url,
     nums: [{
@@ -15,6 +16,7 @@ Page({
     classificationArray: ['狸花', '橘猫及橘白', '奶牛', '玳瑁及三花', '纯色'],
     pickers: {
       gender: ['', '公', '母'],
+      addPhotoNumber: ['0', '1', '2', '3'],
       isSterilization: ['', '已绝育', '未绝育'],
       status: ['健康', '送养', '失踪', '离世'],
       character: ['', '亲人可抱', '亲人不可抱 可摸', '薛定谔亲人', '吃东西时可以一直摸', '吃东西时可以摸一下', '怕人 安全距离 1m 以内', '怕人 安全距离 1m 以外'],
@@ -169,40 +171,6 @@ Page({
     this.setData({
       ['cat.' + key]: value
     });
-  },
-
-  onShareAppMessage: function (res) {
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      console.log(res.target)
-    }
-    return {
-      title: this.data.catname,
-      path: '/pages/catDetail/catDetail?cat_name=' + this.data.cat.name,
-      success: function (res) {
-        // 转发成功
-      },
-      fail: function (res) {
-        // 转发失败
-      }
-    }
-  },
-
-  onShareTimeline: function (res) {
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      console.log(res.target)
-    }
-    return {
-      title: this.data.catname,
-      path: '/pages/catDetail/catDetail?cat_name=' + this.data.cat.name,
-      success: function (res) {
-        // 转发成功
-      },
-      fail: function (res) {
-        // 转发失败
-      }
-    }
   },
 
 })
