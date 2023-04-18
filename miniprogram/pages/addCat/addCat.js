@@ -68,7 +68,7 @@ Page({
         birthTime: this.data.cat.birthTime,
         relatedCats: this.data.cat.relatedCats,
         lastEditTime: Date(),
-        userId: app.globalData.userId,
+        lastEditAdministrator: app.globalData.Administrator,
       }).then(res => {
         wx.showToast({
           icon: 'success',

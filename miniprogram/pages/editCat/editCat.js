@@ -88,7 +88,6 @@ Page({
       success: (res) => {
         if (res.confirm) {
           var that = this
-          console.log(app.globalData.Administrator)
           wx.showLoading({
             title: '更新中...',
           });
