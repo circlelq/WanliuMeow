@@ -39,10 +39,17 @@ Page({
     app.mpServerless.db.collection('WanliuMeowAdministrator').find({
       userId: result.user.userId
     }, ).then(res => {
+      console.log(res.result[0].name)
       if (res.result.length > 0) {
         app.globalData.isAdministrator = true
+        app.globalData.Administrator = res.result[0].name
       }
     }).catch(console.error);
+
+    app.mpServerless.db.collection('WanTest').insertOne({
+      userId: result.user.userId,
+      time: Date()
+    }, ).then(res => {}).catch(console.error);
   },
 
   editCat(e) {

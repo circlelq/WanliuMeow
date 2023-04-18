@@ -18,7 +18,9 @@
 <view class="body">
   邮箱：<text bindtap="copyTBL1" class="copy">zhengliyin1007@163.com</text>
 </view>
-
+<view class="body">
+  公众号：<text bindtap="copyTBL2" class="copy">万柳猫猫之家</text>
+</view>
 
 <text> \n </text>
 

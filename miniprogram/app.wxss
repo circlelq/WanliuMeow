@@ -186,3 +186,17 @@
 .adContainer ad {
   width: 100%;
 }
+
+.edit-input {
+  display: block;
+  height: 60rpx;
+  font-size: 35rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #DFDFDF;
+  color: #7CA698;
+  /* width: 100%; */
+  margin-top: 10rpx;
+}

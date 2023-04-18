@@ -6,8 +6,8 @@ Page({
     cat: {},
     url: app.globalData.url,
     classification: 0,
-    classificationArray: ['狸花', '橘猫及橘白', '奶牛', '玳瑁及三花', '纯色'],
     pickers: {
+      classification: ['狸花', '橘猫及橘白', '奶牛', '玳瑁及三花', '纯色'],
       gender: ['', '公', '母'],
       addPhotoNumber: ['0', '1', '2', '3'],
       isSterilization: ['', '已绝育', '未绝育'],
@@ -15,14 +15,6 @@ Page({
       character: ['', '亲人可抱', '亲人不可抱 可摸', '薛定谔亲人', '吃东西时可以一直摸', '吃东西时可以摸一下', '怕人 安全距离 1m 以内', '怕人 安全距离 1m 以外'],
     },
     picker_selected: {},
-  },
-
-  bindPickerChangeClassification: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      classification: e.detail.value,
-      "cat.classification": e.detail.value
-    })
   },
 
   onLoad: function (options) {
@@ -93,10 +85,10 @@ Page({
     wx.showModal({
       title: '提示',
       content: '确定提交吗？',
-      success(res) {
+      success: (res) => {
         if (res.confirm) {
-          console.log('用户点击确定')
-
+          var that = this
+          console.log(app.globalData.Administrator)
           wx.showLoading({
             title: '更新中...',
           });
@@ -119,8 +111,9 @@ Page({
                 deliveryTime: this.data.cat.deliveryTime,
                 deathTime: this.data.cat.deathTime,
                 birthTime: this.data.cat.birthTime,
+                relatedCats: this.data.cat.relatedCats,
                 lastEditTime: Date(),
-                userId: app.globalData.userId,
+                lastEditAdministrator: app.globalData.Administrator,
               }
             }).then(res => {
               wx.showToast({
@@ -148,7 +141,7 @@ Page({
     wx.showModal({
       title: '提示',
       content: '确定删除吗？',
-      success(res) {
+      success: (res) => {
         if (res.confirm) {
           console.log('用户点击确定')
           app.mpServerless.db.collection('WanliuMeow').deleteOne({

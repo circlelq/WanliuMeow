@@ -1,5 +1,5 @@
 const app = getApp();
-var classification = 1;
+var classification = "1";
 Page({
   data: {
     cat: [],
@@ -21,6 +21,7 @@ Page({
 
   onLoad: function (options) {
     classification = options.classification;
+    console.log(classification)
     this.loadMoreCat();
   },
 

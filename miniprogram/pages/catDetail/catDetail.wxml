@@ -12,12 +12,10 @@
     <!-- 猫叫声 -->
     <view class="sound">
       <block wx:for="{{audioArr}}" wx:key="content" wx:for-item="v" wx:for-index="key">
-
         <!-- 默认状态 未播放 -->
         <view wx:if="{{!v.bl}}" bindtap='audioPlay' data-key="{{key}}" data-id="{{v.id}}" data-bl="{{v.bl}}">
           <image class="play" src="/pages/images/play.png"></image>
         </view>
-
         <!-- 当前正在播放状态 -->
         <view wx:if="{{v.bl}}" bindtap='audioStop' data-key="{{key}}" data-id="{{v.id}}" data-bl="{{v.bl}}">
           <image class="play" src="/pages/images/pause.png"></image>
@@ -156,7 +154,7 @@
 
 <block wx:for="{{photoArray}}">
   <view style="display:flex; justify-content:center; align-items:center;">
-    <image mode="widthFix" class="cat_image" src="{{url}}{{cat.name}}{{message}}.jpg" style="width: 90%;">
+    <image mode="widthFix" class="cat_image" src="{{url}}{{cat.name}}{{photoArray[index]}}.jpg" style="width: 90%;">
     </image>
   </view>
   <text> \n </text>

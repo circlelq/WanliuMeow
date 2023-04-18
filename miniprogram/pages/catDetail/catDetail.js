@@ -13,12 +13,10 @@ Page({
     app.mpServerless.db.collection('WanliuMeow').find({
       _id: _id,
     }, {}).then(res => {
-      console.log(res)
       this.setData({
         cat: res.result[0],
       });
     }).then(res => {
-      console.log(this.data.cat.addPhotoNumber)
       if (this.data.cat.addPhotoNumber > 0) {
         var photoArray = []
         for (var photoNum = 1; photoNum <= this.data.cat.addPhotoNumber; ++photoNum) {
@@ -33,12 +31,10 @@ Page({
           app.mpServerless.db.collection('WanliuMeow').find({
             name: relatedCats[i],
           }, {}).then(res => {
-            console.log(res)
             this.setData({
               relatedCatsId: this.data.relatedCatsId.concat(res.result),
             });
           })
-          console.log(relatedCats[i])
         }
         this.setData({
           relatedCats: relatedCats,

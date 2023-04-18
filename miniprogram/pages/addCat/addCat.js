@@ -7,14 +7,11 @@ Page({
       status: '健康',
       classification: 0,
       addPhotoNumber: 0,
+      classification: '狸花',
     },
     url: app.globalData.url,
-    nums: [{
-      num: 1
-    }, ],
-    classification: 0,
-    classificationArray: ['狸花', '橘猫及橘白', '奶牛', '玳瑁及三花', '纯色'],
     pickers: {
+      classification: ['狸花', '橘猫及橘白', '奶牛', '玳瑁及三花', '纯色'],
       gender: ['', '公', '母'],
       addPhotoNumber: ['0', '1', '2', '3'],
       isSterilization: ['', '已绝育', '未绝育'],
@@ -24,19 +21,10 @@ Page({
     picker_selected: {},
   },
 
-  bindPickerChangeClassification: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      classification: e.detail.value,
-      "cat.classification": e.detail.value
-    })
-  },
-
-  onLoad: function (options) {
-  },
+  onLoad: function (options) {},
 
   // 选择日期
-  bindDateChange: function(e) {
+  bindDateChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     const key = e.currentTarget.dataset.key;
     const value = e.detail.value;
@@ -62,24 +50,25 @@ Page({
       title: '更新中...',
     });
     app.mpServerless.db.collection('WanliuMeow').insertOne({
-          name: this.data.cat.name,
-          addPhotoNumber: this.data.cat.addPhotoNumber,
-          furColor: this.data.cat.furColor,
-          classification: this.data.cat.classification,
-          gender: this.data.cat.gender,
-          status: this.data.cat.status,
-          isSterilization: this.data.cat.isSterilization,
-          sterilizationTime: this.data.cat.sterilizationTime,
-          character: this.data.cat.character,
-          firstSightingTime: this.data.cat.firstSightingTime,
-          appearance: this.data.cat.appearance,
-          missingTime: this.data.cat.missingTime,
-          relationship: this.data.cat.relationship,
-          deliveryTime: this.data.cat.deliveryTime,
-          deathTime: this.data.cat.deathTime,
-          birthTime: this.data.cat.birthTime,
-          lastEditTime: Date(),
-          userId: app.globalData.userId,
+        name: this.data.cat.name,
+        addPhotoNumber: this.data.cat.addPhotoNumber,
+        furColor: this.data.cat.furColor,
+        classification: this.data.cat.classification,
+        gender: this.data.cat.gender,
+        status: this.data.cat.status,
+        isSterilization: this.data.cat.isSterilization,
+        sterilizationTime: this.data.cat.sterilizationTime,
+        character: this.data.cat.character,
+        firstSightingTime: this.data.cat.firstSightingTime,
+        appearance: this.data.cat.appearance,
+        missingTime: this.data.cat.missingTime,
+        relationship: this.data.cat.relationship,
+        deliveryTime: this.data.cat.deliveryTime,
+        deathTime: this.data.cat.deathTime,
+        birthTime: this.data.cat.birthTime,
+        relatedCats: this.data.cat.relatedCats,
+        lastEditTime: Date(),
+        userId: app.globalData.userId,
       }).then(res => {
         wx.showToast({
           icon: 'success',
