@@ -87,7 +87,6 @@ Page({
       content: '确定提交吗？',
       success: (res) => {
         if (res.confirm) {
-          var that = this
           wx.showLoading({
             title: '更新中...',
           });
@@ -104,11 +103,14 @@ Page({
                 sterilizationTime: this.data.cat.sterilizationTime,
                 character: this.data.cat.character,
                 firstSightingTime: this.data.cat.firstSightingTime,
+                firstSightingTime: this.data.cat.firstSightingLocation,
                 appearance: this.data.cat.appearance,
                 missingTime: this.data.cat.missingTime,
                 relationship: this.data.cat.relationship,
                 deliveryTime: this.data.cat.deliveryTime,
                 deathTime: this.data.cat.deathTime,
+                deathReason: this.data.cat.deathReason,
+                location: this.data.cat.location,
                 birthTime: this.data.cat.birthTime,
                 relatedCats: this.data.cat.relatedCats,
                 lastEditTime: Date(),
@@ -132,13 +134,12 @@ Page({
         }
       }
     })
-
   },
-
 
   delete() {
     wx.showModal({
       title: '提示',
+      confirmColor: 'red',
       content: '确定删除吗？',
       success: (res) => {
         if (res.confirm) {

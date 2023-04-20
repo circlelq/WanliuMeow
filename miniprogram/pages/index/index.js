@@ -46,7 +46,7 @@ Page({
       }
     }).catch(console.error);
 
-    app.mpServerless.db.collection('WanTest').insertOne({
+    app.mpServerless.db.collection('NewPeople').insertOne({
       userId: result.user.userId,
       time: Date()
     }, ).then(res => {}).catch(console.error);
@@ -86,7 +86,7 @@ Page({
     app.mpServerless.db.collection('WanliuMeow').find({
       status: "送养",
     }, {
-      // sort: { pinyin: 1 },
+      sort: { deliveryTime: -1 },
       skip: fostered_cat.length,
       limit: 20,
     }).then(res => {
@@ -104,7 +104,7 @@ Page({
     app.mpServerless.db.collection('WanliuMeow').find({
       status: "失踪",
     }, {
-      // sort: { pinyin: 1 },
+      sort: { missingTime: -1 },
       skip: unknown_cat.length,
       limit: 20,
     }).then(res => {
@@ -122,7 +122,7 @@ Page({
     app.mpServerless.db.collection('WanliuMeow').find({
       status: "离世",
     }, {
-      // sort: { pinyin: 1 },
+      sort: { deathTime: -1 },
       skip: dead_cat.length,
       limit: 20,
     }).then(res => {

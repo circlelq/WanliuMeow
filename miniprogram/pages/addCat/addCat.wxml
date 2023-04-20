@@ -151,3 +151,5 @@
 <text> \n </text>
 
 <button class='primary' bindtap='upload' style="margin: 0;">确定提交</button>
+
+<text> \n </text>

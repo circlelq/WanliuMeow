@@ -13,7 +13,6 @@ const mpServerless = new MPServerless({
   endpoint: 'https://api.next.bspapp.com', // 服务空间地址，从小程序 serverless 控制台处获得
 });
 
-
 App({
   onLaunch: async function () {
 

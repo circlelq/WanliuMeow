@@ -46,42 +46,52 @@ Page({
   },
 
   upload() {
-    wx.showLoading({
-      title: '更新中...',
-    });
-    app.mpServerless.db.collection('WanliuMeow').insertOne({
-        name: this.data.cat.name,
-        addPhotoNumber: this.data.cat.addPhotoNumber,
-        furColor: this.data.cat.furColor,
-        classification: this.data.cat.classification,
-        gender: this.data.cat.gender,
-        status: this.data.cat.status,
-        isSterilization: this.data.cat.isSterilization,
-        sterilizationTime: this.data.cat.sterilizationTime,
-        character: this.data.cat.character,
-        firstSightingTime: this.data.cat.firstSightingTime,
-        appearance: this.data.cat.appearance,
-        missingTime: this.data.cat.missingTime,
-        relationship: this.data.cat.relationship,
-        deliveryTime: this.data.cat.deliveryTime,
-        deathTime: this.data.cat.deathTime,
-        birthTime: this.data.cat.birthTime,
-        relatedCats: this.data.cat.relatedCats,
-        lastEditTime: Date(),
-        lastEditAdministrator: app.globalData.Administrator,
-      }).then(res => {
-        wx.showToast({
-          icon: 'success',
-          title: '操作成功',
-        });
-      })
-      .catch(err => {
-        console.error(err);
-        wx.showToast({
-          icon: 'error',
-          title: '操作失败',
-        });
-      });
+    wx.showModal({
+      title: '提示',
+      content: '确定提交吗？',
+      success: (res) => {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '更新中...',
+          });
+          app.mpServerless.db.collection('WanliuMeow').insertOne({
+              name: this.data.cat.name,
+              addPhotoNumber: this.data.cat.addPhotoNumber,
+              furColor: this.data.cat.furColor,
+              classification: this.data.cat.classification,
+              gender: this.data.cat.gender,
+              status: this.data.cat.status,
+              isSterilization: this.data.cat.isSterilization,
+              sterilizationTime: this.data.cat.sterilizationTime,
+              character: this.data.cat.character,
+              firstSightingTime: this.data.cat.firstSightingTime,
+              appearance: this.data.cat.appearance,
+              missingTime: this.data.cat.missingTime,
+              relationship: this.data.cat.relationship,
+              deliveryTime: this.data.cat.deliveryTime,
+              deathTime: this.data.cat.deathTime,
+              birthTime: this.data.cat.birthTime,
+              relatedCats: this.data.cat.relatedCats,
+              lastEditTime: Date(),
+              lastEditAdministrator: app.globalData.Administrator,
+            }).then(res => {
+              wx.showToast({
+                icon: 'success',
+                title: '操作成功',
+              });
+            })
+            .catch(err => {
+              console.error(err);
+              wx.showToast({
+                icon: 'error',
+                title: '操作失败',
+              });
+            });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
 
   //音频播放  

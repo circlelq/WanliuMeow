@@ -93,6 +93,11 @@
 </picker>
 
 <view class="head1">
+  <text user-select="true">出没地点</text>
+</view>
+<input data-key='location' bindinput="inputText" class="edit-input" value="{{cat.location}}" />
+
+<view class="head1">
   <text user-select="true">出生时间</text>
 </view>
 <input data-key='birthTime' bindinput="inputText" class="edit-input" value="{{cat.birthTime}}" />
@@ -106,11 +111,15 @@
   </view>
 </picker>
 
-
 <view class="head1">
   <text user-select="true">第一次目击时间</text>
 </view>
 <input data-key='firstSightingTime' bindinput="inputText" class="edit-input" value="{{cat.firstSightingTime}}" />
+
+<view class="head1">
+  <text user-select="true">第一次被目击地点</text>
+</view>
+<input data-key='firstSightingLocation' bindinput="inputText" class="edit-input" value="{{cat.firstSightingLocation}}" />
 
 <view class="head1">
   <text user-select="true">失踪时间</text>
@@ -142,6 +151,11 @@
 </picker>
 
 <view class="head1">
+  <text user-select="true">离世原因</text>
+</view>
+<input data-key='deathReason' bindinput="inputText" class="edit-input" value="{{cat.deathReason}}" />
+
+<view class="head1">
   <text user-select="true">更多</text>
 </view>
 <input data-key='moreInformation' bindinput="inputText" class="edit-input" value="{{cat.moreInformation}}" />
@@ -158,25 +172,10 @@
 
 <text> \n </text>
 
-<block wx:for="{{photoArray}}">
-  <view style="display:flex; justify-content:center; align-items:center;">
-    <image mode="widthFix" class="cat_image" src="{{url}}{{cat.name}}{{message}}.jpg" style="width: 90%;">
-    </image>
-  </view>
-  <text> \n </text>
-</block>
-
-<block wx:for="{{MovieNums}}">
-
-  <view style="display:flex; justify-content:center; align-items:center;">
-    <video mode="widthFix" class="cat_image" src="{{url}}{{cat.name}}{{item.num}}.mp4" style="width: 90%;">
-    </video>
-  </view>
-  <text> \n </text>
-</block>
-
 <button class='primary' bindtap='upload' style="margin: 0;">确定提交</button>
 
 <text> \n </text>
 
-<button class='primary' bindtap='delete' style="margin: 0;">删除</button>
+<button type="warn" bindtap='delete' style="margin: 0 auto; width: 60%;">删除</button>
+
+<text> \n </text>
