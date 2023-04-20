@@ -75,14 +75,14 @@
       <text user-select="true">{{cat.birthTime}}</text>
     </view>
   </view>
-  <view wx:if="{{cat.location}}" class="flex-wrp" style="flex-direction:column;">
+  <!-- <view wx:if="{{cat.location}}" class="flex-wrp" style="flex-direction:column;">
     <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
       <text user-select="true">出没地点</text>
     </view>
     <view class="itemname2">
       <text user-select="true">{{cat.location}}</text>
     </view>
-  </view>
+  </view> -->
   <view wx:if="{{cat.character}}" class="flex-wrp" style="flex-direction:column;">
     <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
       <text user-select="true">性格</text>
