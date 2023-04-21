@@ -48,7 +48,7 @@ Page({
   upload() {
     wx.showModal({
       title: '提示',
-      content: '确定提交吗？',
+      content: '确定添加猫吗？',
       success: (res) => {
         if (res.confirm) {
           wx.showLoading({
@@ -94,75 +94,6 @@ Page({
     })
   },
 
-  //音频播放  
-  audioPlay(e) {
-    var that = this,
-      id = e.currentTarget.dataset.id,
-      key = e.currentTarget.dataset.key,
-      audioArr = that.data.audioArr;
-
-    //设置状态
-    audioArr.forEach((v, i, array) => {
-      v.bl = false;
-      if (i == key) {
-        v.bl = true;
-      }
-    })
-    that.setData({
-      audioArr: audioArr,
-      audKey: key,
-    })
-
-    myaudio.autoplay = true;
-    var audKey = that.data.audKey,
-      vidSrc = audioArr[audKey].src;
-    myaudio.src = vidSrc;
-
-    myaudio.play();
-
-    //开始监听
-    myaudio.onPlay(() => {
-      console.log('开始播放');
-    })
-
-    //结束监听
-    myaudio.onEnded(() => {
-      console.log('自动播放完毕');
-      audioArr[key].bl = false;
-      that.setData({
-        audioArr: audioArr,
-      })
-    })
-
-    //错误回调
-    myaudio.onError((err) => {
-      console.log(err);
-      audioArr[key].bl = false;
-      that.setData({
-        audioArr: audioArr,
-      })
-      return
-    })
-  },
-
-  // 音频停止
-  audioStop(e) {
-    var that = this,
-      key = e.currentTarget.dataset.key,
-      audioArr = that.data.audioArr;
-    //设置状态
-    audioArr.forEach((v, i, array) => {
-      v.bl = false;
-    })
-    that.setData({
-      audioArr: audioArr
-    })
-    myaudio.stop();
-    //停止监听
-    myaudio.onStop(() => {
-      console.log('停止播放');
-    })
-  },
   // 输入了东西
   inputText(e) {
     const key = e.currentTarget.dataset.key;
