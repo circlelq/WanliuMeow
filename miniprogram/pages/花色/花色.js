@@ -35,7 +35,7 @@ Page({
       classification: classification,
       status: "健康"
     }, {
-      // sort: { pinyin: 1 },
+      sort: { lastEditTime: -1 },
       skip: cat.length,
       limit: 20,
     }).then(res => {

@@ -22,10 +22,10 @@ Page({
   },
 
   async onLoad(options) {
-    if (options.pageId) {
-      wx.navigateTo({
-        url: '/pages/cat/' + options.pageId + '/' + options.pageId,
-      })
+    if (Object.keys(options).length !== 0) {
+      this.setData({
+        currentTab: parseInt(options.currentTab),
+      });
     }
     this.loadMoreCat_fostered();
     this.loadMoreCat_unknown();
@@ -38,7 +38,7 @@ Page({
     });
     app.mpServerless.db.collection('WanliuMeowAdministrator').find({
       userId: result.user.userId
-    }, ).then(res => {
+    }).then(res => {
       console.log(res.result[0].name)
       if (res.result.length > 0) {
         app.globalData.isAdministrator = true
@@ -49,7 +49,7 @@ Page({
     app.mpServerless.db.collection('NewPeople').insertOne({
       userId: result.user.userId,
       time: Date()
-    }, ).then(res => {}).catch(console.error);
+    }).then(res => { }).catch(console.error);
   },
 
   editCat(e) {
@@ -139,11 +139,6 @@ Page({
     'success', 'success_no_circle', 'info', 'warn', 'waiting', 'cancel', 'download', 'search', 'clear'
   ],
 
-  onPullDownRefresh: function () {
-    wx.stopPullDownRefresh()
-  },
-
-
   //转发此页面的设置
   onShareAppMessage: function (ops) {
     if (ops.from === 'button') {
@@ -151,7 +146,7 @@ Page({
       console.log(ops.target)
     }
     return {
-      path: 'pages/index/index', // 路径，传递参数到指定页面。
+      path: 'pages/index/index?currentTab=' + this.data.currentTab,
       success: function (res) {
         // 转发成功
         console.log("转发成功:" + JSON.stringify(res));
@@ -170,7 +165,7 @@ Page({
       console.log(ops.target)
     }
     return {
-      path: 'pages/index/index', // 路径，传递参数到指定页面。
+      path: 'pages/index/index?currentTab=' + this.data.currentTab,
       success: function (res) {
         // 转发成功
         console.log("转发成功:" + JSON.stringify(res));
@@ -188,11 +183,11 @@ Page({
     app.mpServerless.db.collection('WanliuMeow').find({
       name: name,
     }, {}).then(res => {
-    if (e.detail.value) {
-      wx.navigateTo({
-        url: "/pages/catDetail/catDetail?_id=" + res.result[0]._id,
-      })
-    }
+      if (e.detail.value) {
+        wx.navigateTo({
+          url: "/pages/catDetail/catDetail?_id=" + res.result[0]._id,
+        })
+      }
     })
   }
 

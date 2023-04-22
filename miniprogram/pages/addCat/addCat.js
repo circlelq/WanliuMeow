@@ -21,7 +21,7 @@ Page({
     picker_selected: {},
   },
 
-  onLoad: function (options) {},
+  onLoad: function (options) { },
 
   // 选择日期
   bindDateChange: function (e) {
@@ -55,31 +55,31 @@ Page({
             title: '更新中...',
           });
           app.mpServerless.db.collection('WanliuMeow').insertOne({
-              name: this.data.cat.name,
-              addPhotoNumber: this.data.cat.addPhotoNumber,
-              furColor: this.data.cat.furColor,
-              classification: this.data.cat.classification,
-              gender: this.data.cat.gender,
-              status: this.data.cat.status,
-              isSterilization: this.data.cat.isSterilization,
-              sterilizationTime: this.data.cat.sterilizationTime,
-              character: this.data.cat.character,
-              firstSightingTime: this.data.cat.firstSightingTime,
-              appearance: this.data.cat.appearance,
-              missingTime: this.data.cat.missingTime,
-              relationship: this.data.cat.relationship,
-              deliveryTime: this.data.cat.deliveryTime,
-              deathTime: this.data.cat.deathTime,
-              birthTime: this.data.cat.birthTime,
-              relatedCats: this.data.cat.relatedCats,
-              lastEditTime: Date(),
-              lastEditAdministrator: app.globalData.Administrator,
-            }).then(res => {
-              wx.showToast({
-                icon: 'success',
-                title: '操作成功',
-              });
-            })
+            name: this.data.cat.name,
+            addPhotoNumber: this.data.cat.addPhotoNumber,
+            furColor: this.data.cat.furColor,
+            classification: this.data.cat.classification,
+            gender: this.data.cat.gender,
+            status: this.data.cat.status,
+            isSterilization: this.data.cat.isSterilization,
+            sterilizationTime: this.data.cat.sterilizationTime,
+            character: this.data.cat.character,
+            firstSightingTime: this.data.cat.firstSightingTime,
+            appearance: this.data.cat.appearance,
+            missingTime: this.data.cat.missingTime,
+            relationship: this.data.cat.relationship,
+            deliveryTime: this.data.cat.deliveryTime,
+            deathTime: this.data.cat.deathTime,
+            birthTime: this.data.cat.birthTime,
+            relatedCats: this.data.cat.relatedCats,
+            lastEditTime: Date(),
+            lastEditAdministrator: app.globalData.Administrator,
+          }).then(res => {
+            wx.showToast({
+              icon: 'success',
+              title: '操作成功',
+            });
+          })
             .catch(err => {
               console.error(err);
               wx.showToast({

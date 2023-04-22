@@ -1,11 +1,9 @@
 <!--index.wxml-->
 
-
 <view class="circle">
   <image lazy-load='true' bindtap="imageTap" class='avator' src="/pages/images/huihui.png" mode='aspectFill'></image>
   <input class='search' placeholder="请输入猫咪名称" bindconfirm="bindconfirmT" placeholder-class="placeholder" />
 </view>
-
 
 <view class="navbar">
   <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
@@ -13,7 +11,6 @@
 
 <!-- 在校 -->
 <view hidden="{{currentTab!==0}}">
-
 
   <text> \n </text>
 

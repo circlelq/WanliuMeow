@@ -28,18 +28,6 @@ Page({
         classification: res.result[0].classification,
       });
     }).then(res => {
-      var number = 0
-      var photoNum = 0
-      for (var j in this.data.cat.photos) {
-        var photoNum = {
-          num: photoNum
-        }
-        this.setData({
-          photoNums: this.data.photoNums.concat(photoNum),
-        });
-        number++
-      }
-    }).then(res => {
       var picker_selected = {};
       const pickers = this.data.pickers;
       console.log(pickers)
@@ -91,37 +79,37 @@ Page({
             title: '更新中...',
           });
           app.mpServerless.db.collection('WanliuMeow').updateMany({
-              _id: this.data.cat._id
-            }, {
-              $set: {
-                addPhotoNumber: this.data.cat.addPhotoNumber,
-                furColor: this.data.cat.furColor,
-                classification: this.data.cat.classification,
-                gender: this.data.cat.gender,
-                status: this.data.cat.status,
-                isSterilization: this.data.cat.isSterilization,
-                sterilizationTime: this.data.cat.sterilizationTime,
-                character: this.data.cat.character,
-                firstSightingTime: this.data.cat.firstSightingTime,
-                firstSightingTime: this.data.cat.firstSightingLocation,
-                appearance: this.data.cat.appearance,
-                missingTime: this.data.cat.missingTime,
-                relationship: this.data.cat.relationship,
-                deliveryTime: this.data.cat.deliveryTime,
-                deathTime: this.data.cat.deathTime,
-                deathReason: this.data.cat.deathReason,
-                location: this.data.cat.location,
-                birthTime: this.data.cat.birthTime,
-                relatedCats: this.data.cat.relatedCats,
-                lastEditTime: Date(),
-                lastEditAdministrator: app.globalData.Administrator,
-              }
-            }).then(res => {
-              wx.showToast({
-                icon: 'success',
-                title: '操作成功',
-              });
-            })
+            _id: this.data.cat._id
+          }, {
+            $set: {
+              addPhotoNumber: this.data.cat.addPhotoNumber,
+              furColor: this.data.cat.furColor,
+              classification: this.data.cat.classification,
+              gender: this.data.cat.gender,
+              status: this.data.cat.status,
+              isSterilization: this.data.cat.isSterilization,
+              sterilizationTime: this.data.cat.sterilizationTime,
+              character: this.data.cat.character,
+              firstSightingTime: this.data.cat.firstSightingTime,
+              firstSightingTime: this.data.cat.firstSightingLocation,
+              appearance: this.data.cat.appearance,
+              missingTime: this.data.cat.missingTime,
+              relationship: this.data.cat.relationship,
+              deliveryTime: this.data.cat.deliveryTime,
+              deathTime: this.data.cat.deathTime,
+              deathReason: this.data.cat.deathReason,
+              location: this.data.cat.location,
+              birthTime: this.data.cat.birthTime,
+              relatedCats: this.data.cat.relatedCats,
+              lastEditTime: Date(),
+              lastEditAdministrator: app.globalData.Administrator,
+            }
+          }).then(res => {
+            wx.showToast({
+              icon: 'success',
+              title: '操作成功',
+            });
+          })
             .catch(err => {
               console.error(err);
               wx.showToast({

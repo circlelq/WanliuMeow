@@ -123,8 +123,8 @@ Page({
       console.log(res.target)
     }
     return {
-      title: this.data.catname,
-      path: '/pages/catDetail/catDetail?cat_name=' + this.data.cat.name,
+      title: this.data.cat.name,
+      path: '/pages/catDetail/catDetail?_id=' + this.data.cat._id,
       success: function (res) {
         // 转发成功
       },
@@ -140,8 +140,8 @@ Page({
       console.log(res.target)
     }
     return {
-      title: this.data.catname,
-      path: '/pages/catDetail/catDetail?cat_name=' + this.data.cat.name,
+      title: this.data.cat.name,
+      path: '/pages/catDetail/catDetail?_id=' + this.data.cat._id,
       success: function (res) {
         // 转发成功
       },
