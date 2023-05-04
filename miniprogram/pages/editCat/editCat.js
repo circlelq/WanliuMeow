@@ -151,6 +151,16 @@ Page({
 
   },
 
+
+  // 输入了东西
+  inputText(e) {
+    const key = e.currentTarget.dataset.key;
+    const value = e.detail.value;
+    this.setData({
+      ['cat.' + key]: value
+    });
+  },
 })
+
 //创建audio控件
 const myaudio = wx.createInnerAudioContext();
