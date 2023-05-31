@@ -6,6 +6,7 @@ Page({
     cat: {},
     url: app.globalData.url,
     relatedCatsId: [],
+    photoArray: []
   },
 
   onLoad: function (options) {
@@ -18,10 +19,9 @@ Page({
       });
     }).then(res => {
       if (this.data.cat.addPhotoNumber > 0) {
-        var photoArray = []
         for (var photoNum = 1; photoNum <= this.data.cat.addPhotoNumber; ++photoNum) {
           this.setData({
-            photoArray: photoArray.concat(photoNum),
+            photoArray: this.data.photoArray.concat(photoNum),
           });
         }
       }

@@ -51,7 +51,6 @@ App({
     });
 
   },
-  mpServerless,
 
   globalData: {
     isAdministrator: false,
