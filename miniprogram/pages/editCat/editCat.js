@@ -97,6 +97,7 @@ Page({
               relationship: this.data.cat.relationship,
               deliveryTime: this.data.cat.deliveryTime,
               deathTime: this.data.cat.deathTime,
+              moreInformation: this.data.cat.moreInformation,
               deathReason: this.data.cat.deathReason,
               location: this.data.cat.location,
               birthTime: this.data.cat.birthTime,

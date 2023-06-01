@@ -68,6 +68,7 @@ Page({
             appearance: this.data.cat.appearance,
             missingTime: this.data.cat.missingTime,
             relationship: this.data.cat.relationship,
+            moreInformation: this.data.cat.moreInformation,
             deliveryTime: this.data.cat.deliveryTime,
             deathTime: this.data.cat.deathTime,
             birthTime: this.data.cat.birthTime,
