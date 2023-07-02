@@ -91,7 +91,7 @@ Page({
               sterilizationTime: this.data.cat.sterilizationTime,
               character: this.data.cat.character,
               firstSightingTime: this.data.cat.firstSightingTime,
-              firstSightingTime: this.data.cat.firstSightingLocation,
+              firstSightingLocation: this.data.cat.firstSightingLocation,
               appearance: this.data.cat.appearance,
               missingTime: this.data.cat.missingTime,
               relationship: this.data.cat.relationship,
