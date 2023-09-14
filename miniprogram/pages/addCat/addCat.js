@@ -71,6 +71,7 @@ Page({
             moreInformation: this.data.cat.moreInformation,
             deliveryTime: this.data.cat.deliveryTime,
             deathTime: this.data.cat.deathTime,
+            location: this.data.cat.location,
             birthTime: this.data.cat.birthTime,
             relatedCats: this.data.cat.relatedCats,
             lastEditTime: Date(),

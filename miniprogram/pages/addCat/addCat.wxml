@@ -86,6 +86,11 @@
 </picker>
 
 <view class="head1">
+  <text user-select="true">出没地点</text>
+</view>
+<input data-key='location' bindinput="inputText" class="edit-input" value="{{cat.location}}" />
+
+<view class="head1">
   <text user-select="true">出生时间</text>
 </view>
 <input data-key='birthTime' bindinput="inputText" class="edit-input" value="{{cat.birthTime}}" />
