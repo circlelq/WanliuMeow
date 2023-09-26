@@ -1,13 +1,4 @@
 /**app.wxss**/
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-}
 
 .itemname1 {
   font-size: 27rpx;
@@ -19,6 +10,12 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+}
+
+.divLineLong {
+  background: #eee;
+  height: 3rpx;
+  margin-left: 40rpx;
 }
 
 .itemname2 {
@@ -68,11 +65,10 @@
   text-align: justify;
 }
 
-
 .circle {
-  /* height: 100rpx; */
-  margin-top: 60rpx;
-  margin-bottom: 50rpx;
+  height: 150rpx;
+  /* margin-top: 60rpx;
+  margin-bottom: 50rpx; */
   display: flex;
   align-items: center;
   width: 100%;
@@ -129,8 +125,6 @@
   width: 90rpx;
   height: 90rpx;
   margin-left: 40rpx;
-  /* margin-top: 60rpx;
-  margin-bottom: 60rpx; */
   position: absolute;
   align-items: center;
   display: flex;

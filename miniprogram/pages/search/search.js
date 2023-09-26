@@ -1,0 +1,95 @@
+const app = getApp();
+
+Page({
+  data: {
+    cat: [],
+    inputValue: "",
+    url: app.globalData.url,
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    if (options.pageId) {
+      wx.navigateTo({
+        url: '/pages/cat/' + options.pageId + '/' + options.pageId,
+      })
+    }
+  },
+
+  loadMorecat() {
+    const cat = this.data.cat;
+    app.mpServerless.db.collection('WanliuMeow').find({
+      name: {
+        $regex: this.data.inputValue
+      }
+    }, {
+      sort: {
+        lastEditTime: -1
+      },
+      // skip: cat.length,
+      // limit: 20,
+    }).then(res => {
+      const {
+        result: data
+      } = res;
+      this.setData({
+        cat: data
+      });
+    }).catch(console.error);
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    this.loadMorecat();
+  },
+
+  editCat(e) {
+    const _id = e.currentTarget.dataset._id;
+    if (app.globalData.isAdministrator) {
+      wx.navigateTo({
+        url: '/pages/editCat/editCat?_id=' + _id,
+      });
+    }
+  },
+
+  // 点击组织
+  clickcat(e, iscatId = false) {
+    const cat_id = iscatId ? e : e.currentTarget.dataset.cat_id;
+    const detail_url = '/pages/catDetail/catDetail';
+
+    wx.navigateTo({
+      url: detail_url + '?cat_id=' + cat_id,
+    });
+  },
+
+  bindKeyInput: function (e) {
+    if (e.detail.value == "") {
+      this.setData({
+        cat: []
+      })
+    } else {
+      this.setData({
+        inputValue: "(?i)" + "(.*)(" + e.detail.value.split('').join(')(.*)(') + ")(.*)"
+      })
+      this.loadMorecat();
+    }
+  },
+
+  // 搜索栏输入名字后页面跳转
+  bindconfirmT: function (e) {
+    if (e.detail.value) {
+      const cat = this.data.cat;
+      app.mpServerless.db.collection('WanliuMeow').find({
+        name: e.detail.value
+      }, {}).then(res => {
+        wx.navigateTo({
+          url: '/pages/catDetail/catDetail?cat_id=' + res.result[0]._id,
+        })
+      }).catch(console.error);
+    }
+  },
+})

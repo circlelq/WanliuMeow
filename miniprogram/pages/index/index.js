@@ -177,18 +177,4 @@ Page({
     }
   },
 
-  // 搜索栏输入名字后页面跳转
-  bindconfirmT: function (e) {
-    var name = e.detail.value;
-    app.mpServerless.db.collection('WanliuMeow').find({
-      name: name,
-    }, {}).then(res => {
-      if (e.detail.value) {
-        wx.navigateTo({
-          url: "/pages/catDetail/catDetail?_id=" + res.result[0]._id,
-        })
-      }
-    })
-  }
-
 })

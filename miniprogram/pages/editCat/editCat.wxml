@@ -175,6 +175,13 @@
   <text user-select="true">{{cat.lastEditAdministrator}}</text>
 </view>
 
+<view class="head1">
+  <text user-select="true">最后编辑时间</text>
+</view>
+<view class="body">
+  <text user-select="true">{{cat.lastEditTime}}</text>
+</view>
+
 <text> \n </text>
 
 <button class='primary' bindtap='upload' style="margin: 0;">确定提交</button>

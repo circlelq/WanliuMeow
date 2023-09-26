@@ -2,6 +2,7 @@
   "pages": [ 
     "pages/index/index",
     "pages/about/about",
+    "pages/search/search",
     "pages/catDetail/catDetail",
     "pages/editCat/editCat",
     "pages/addCat/addCat",
