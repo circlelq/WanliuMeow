@@ -1,7 +1,7 @@
 <!--index.wxml-->
 
 <navigator class="circle" url="/pages/search/search">
-  <image class='avator' src="/pages/images/huihui.png"></image>
+  <image lazy-load='true' bindtap="imageTap" class='avator' src="/pages/images/huihui.png" mode='aspectFill'></image>
   <text class="search">点击搜索</text>
 </navigator>
 

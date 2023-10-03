@@ -8,7 +8,7 @@ export interface OSSUploadOptions {
     OSSAccessKeyId: string;
 }
 export interface OSSUploadHeaders {
-    'Expires'?: string;
+    Expires?: string;
     'Cache-Control'?: string;
     'Content-Type'?: string;
     'Content-Encoding'?: string;
@@ -23,6 +23,7 @@ export interface OSSUploadResponseDataJSONObject {
     OSSAccessKeyId: string;
     securityToken: string;
     cdnDomain: string;
+    ossCallbackUrl?: string;
 }
 export declare function OSSUploadResponseFormat(data: GenericObject<string>): OSSUploadResponseDataJSONObject;
 export declare const OSSUploadHeaderList: string[];
@@ -47,13 +48,15 @@ export interface FileUploadOptions {
     };
     file?: string | any;
     timeout?: number;
+    cloudPath?: string;
 }
 export declare class MPFileService extends BaseService {
     private upload;
     constructor(transport: HTTPTransport, options: any);
     deleteFile(url: string): Promise<any>;
     uploadFile(options: FileUploadOptions): Promise<any>;
-    getOSSUploadOptionsFromPath(relativePath: string, targetPath: string, fileSize?: number): Promise<any>;
+    info(fileIds: string | string[], options?: object): Promise<any>;
+    getOSSUploadOptionsFromPath(relativePath: string, targetPath: string, fileSize?: number, cloudPath?: string): Promise<any>;
     reportOSSUpload(id: string, contentType?: string): Promise<void>;
     private validate;
 }

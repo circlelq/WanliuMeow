@@ -51,9 +51,29 @@ export declare const uploadFileSchema: {
                 type: string;
                 required: boolean;
             };
+            cloudPath: {
+                type: string;
+                required: boolean;
+            };
         };
     };
 };
 export declare const deleteFileSchema: {
     url: string;
+};
+export declare const fileInfoSchema: {
+    fileIds: {
+        type: string;
+        required: boolean;
+    };
+    options: {
+        type: string;
+        required: boolean;
+        rule: {
+            maxAge: {
+                type: string;
+                require: boolean;
+            };
+        };
+    };
 };
