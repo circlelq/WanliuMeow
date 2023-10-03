@@ -63,6 +63,7 @@
   letter-spacing: 5rpx;
   line-height: 55rpx;
   text-align: justify;
+  user-select: "true";
 }
 
 .circle {

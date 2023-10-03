@@ -13,13 +13,13 @@
 
 <view class="head1">联系方式</view>
 <view class="body">
-  手机号：<text bindtap="copyTBL" class="copy">15813323234</text>
+  手机号：<text user-select="true">15813323234</text>
 </view>
 <view class="body">
-  邮箱：<text bindtap="copyTBL1" class="copy">zhengliyin1007@163.com</text>
+  邮箱：<text user-select="true">zhengliyin1007@163.com</text>
 </view>
 <view class="body">
-  公众号：<text bindtap="copyTBL2" class="copy">万柳猫猫之家</text>
+  公众号：<text user-select="true">万柳猫猫之家</text>
 </view>
 
 <text> \n </text>
@@ -31,7 +31,7 @@
   信息整理：倒立茵
 </view>
 <view class="staff">
-  v2.2.0
+  v2.2.1
 </view>
 
 <text> \n </text>
