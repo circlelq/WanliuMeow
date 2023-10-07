@@ -3,7 +3,6 @@
   </image>
 </view>
 
-
 <view class="itemname1">
   <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
     <view class="cat-card">{{cat.name}}</view>
@@ -20,7 +19,6 @@
         <view wx:if="{{v.bl}}" bindtap='audioStop' data-key="{{key}}" data-id="{{v.id}}" data-bl="{{v.bl}}">
           <image class="play" src="/pages/images/pause.png"></image>
         </view>
-
       </block>
     </view>
   </view>

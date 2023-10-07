@@ -6,7 +6,8 @@ Page({
     cat: {},
     url: app.globalData.url,
     relatedCatsId: [],
-    photoArray: []
+    photoArray: [],
+    audioArr: []
   },
 
   onLoad: function (options) {
@@ -22,6 +23,18 @@ Page({
         for (var photoNum = 1; photoNum <= this.data.cat.addPhotoNumber; ++photoNum) {
           this.setData({
             photoArray: this.data.photoArray.concat(photoNum),
+          });
+        }
+      }
+      if (this.data.cat.addAudioNumber > 0) {
+        console.log('aaa')
+        for (var audioNum = 1; audioNum <= this.data.cat.addAudioNumber; ++audioNum) {
+          var audioTemp = {
+            bl: false,
+            src: this.data.url + this.data.cat.name + audioNum.toString() + ".m4a"
+          }
+          this.setData({
+            audioArr: this.data.audioArr.concat(audioTemp),
           });
         }
       }
