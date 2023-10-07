@@ -57,9 +57,7 @@ App({
     Administrator: undefined,
     url: "https://wanliu-meow-1257850266.cos.ap-nanjing.myqcloud.com/",
   },
-
   mpServerless
-
 })
 
 wx.showShareMenu({

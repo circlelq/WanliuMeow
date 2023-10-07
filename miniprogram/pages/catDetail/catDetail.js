@@ -27,11 +27,11 @@ Page({
         }
       }
       if (this.data.cat.addAudioNumber > 0) {
-        console.log('aaa')
+        console.log(encodeURIComponent(this.data.cat.name))
         for (var audioNum = 1; audioNum <= this.data.cat.addAudioNumber; ++audioNum) {
           var audioTemp = {
             bl: false,
-            src: this.data.url + this.data.cat.name + audioNum.toString() + ".m4a"
+            src: this.data.url + encodeURIComponent(this.data.cat.name) + audioNum.toString() + ".m4a"
           }
           this.setData({
             audioArr: this.data.audioArr.concat(audioTemp),
