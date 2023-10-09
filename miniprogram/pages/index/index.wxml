@@ -1,9 +1,11 @@
 <!--index.wxml-->
 
-<navigator class="circle" url="/pages/search/search">
+<view class="circle">
   <image lazy-load='true' bindtap="imageTap" class='avator' src="/pages/images/huihui.png" mode='aspectFill'></image>
-  <text class="search">点击搜索</text>
-</navigator>
+  <navigator class="circle" url="/pages/search/search">
+    <text class="search">点击搜索</text>
+  </navigator>
+</view>
 
 <view class="navbar">
   <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
