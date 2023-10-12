@@ -56,16 +56,6 @@ Page({
     }
   },
 
-  // 点击组织
-  clickcat(e, iscatId = false) {
-    const cat_id = iscatId ? e : e.currentTarget.dataset.cat_id;
-    const detail_url = '/pages/catDetail/catDetail';
-
-    wx.navigateTo({
-      url: detail_url + '?cat_id=' + cat_id,
-    });
-  },
-
   bindKeyInput: function (e) {
     if (e.detail.value == "") {
       this.setData({
@@ -87,7 +77,7 @@ Page({
         name: e.detail.value
       }, {}).then(res => {
         wx.navigateTo({
-          url: '/pages/catDetail/catDetail?cat_id=' + res.result[0]._id,
+          url: '/pages/catDetail/catDetail?_id=' + res.result[0]._id,
         })
       }).catch(console.error);
     }
