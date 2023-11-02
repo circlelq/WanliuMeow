@@ -74,6 +74,7 @@ Page({
             moreInformation: this.data.cat.moreInformation,
             deliveryTime: this.data.cat.deliveryTime,
             deathTime: this.data.cat.deathTime,
+            deathReason: this.data.cat.deathReason,
             location: this.data.cat.location,
             birthTime: this.data.cat.birthTime,
             relatedCats: this.data.cat.relatedCats,

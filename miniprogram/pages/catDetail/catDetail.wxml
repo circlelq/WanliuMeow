@@ -59,7 +59,7 @@
   </view>
   <view wx:if="{{cat.sterilizationTime}}" class="flex-wrp" style="flex-direction:column;">
     <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
-      <text user-select="true">绝育情况</text>
+      <text user-select="true">绝育时间</text>
     </view>
     <view class="itemname2">
       <text user-select="true">{{cat.sterilizationTime}}</text>
@@ -119,6 +119,14 @@
     </view>
     <view class="itemname2">
       <text user-select="true">{{cat.deathTime}}</text>
+    </view>
+  </view>
+  <view wx:if="{{cat.deathReason}}" class="flex-wrp" style="flex-direction:column;">
+    <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+      <text user-select="true">离世原因</text>
+    </view>
+    <view class="itemname2">
+      <text user-select="true">{{cat.deathReason}}</text>
     </view>
   </view>
   <view wx:if="{{cat.appearance}}" class="flex-wrp" style="flex-direction:column;">

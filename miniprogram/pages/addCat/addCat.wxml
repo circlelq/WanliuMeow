@@ -146,6 +146,15 @@
 </picker>
 
 <view class="head1">
+  <text user-select="true">离世原因</text>
+</view>
+<picker mode="date" fields="month" data-key='deathReason' bindchange="bindDateChange" value='{{cat.deathReason}}'>
+  <view class="edit-input">
+    {{cat.deathReason}}
+  </view>
+</picker>
+
+<view class="head1">
   <text user-select="true">更多</text>
 </view>
 <input data-key='moreInformation' bindinput="inputText" class="edit-input" value="{{cat.moreInformation}}" />
