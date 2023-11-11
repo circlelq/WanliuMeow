@@ -2,9 +2,7 @@ const app = getApp();
 
 Page({
   data: {
-
     cat: [],
-
     screenWidth: 0,
     screenHeight: 0,
     imgwidth: 0,
@@ -34,7 +32,9 @@ Page({
     app.mpServerless.db.collection('WanliuMeow').find({
       status: "健康"
     }, {
-      sort: { lastEditTime: -1 },
+      sort: {
+        isAdoption: -1
+      },
       skip: cat.length,
       limit: 20,
     }).then(res => {

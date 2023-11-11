@@ -13,6 +13,7 @@ Page({
     url: app.globalData.url,
     pickers: {
       classification: ['狸花', '橘猫及橘白', '奶牛', '玳瑁及三花', '纯色'],
+      isAdoption: ['', '待领养'],
       gender: ['', '公', '母'],
       addPhotoNumber: ['0', '1', '2', '3'],
       addAudioNumber: ['0', '1', '2', '3'],
@@ -63,6 +64,7 @@ Page({
             furColor: this.data.cat.furColor,
             classification: this.data.cat.classification,
             gender: this.data.cat.gender,
+            isAdoption: this.data.cat.isAdoption,
             status: this.data.cat.status,
             isSterilization: this.data.cat.isSterilization,
             sterilizationTime: this.data.cat.sterilizationTime,

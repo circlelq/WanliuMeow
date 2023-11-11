@@ -1,5 +1,5 @@
 <view style="display:flex; justify-content:center; align-items:center;">
-  <image mode="widthFix" src="/pages/images/huihui.png" style="width: 80%;">
+  <image bindtap='previewImage' mode="widthFix" data-src="/pages/images/huihui.png" src="/pages/images/huihui.png" style="width: 80%;">
   </image>
 </view>
 
@@ -31,7 +31,7 @@
   信息整理：倒立茵
 </view>
 <view class="staff">
-  v2.3.2
+  v2.3.3
 </view>
 
 <text> \n </text>

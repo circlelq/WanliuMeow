@@ -9,6 +9,7 @@ Page({
     pickers: {
       classification: ['狸花', '橘猫及橘白', '奶牛', '玳瑁及三花', '纯色'],
       gender: ['', '公', '母'],
+      isAdoption: ['', '待领养'],
       addPhotoNumber: ['0', '1', '2', '3'],
       addAudioNumber: ['0', '1', '2', '3'],
       isSterilization: ['', '已绝育', '未绝育'],
@@ -85,6 +86,7 @@ Page({
             $set: {
               addPhotoNumber: this.data.cat.addPhotoNumber,
               addAudioNumber: this.data.cat.addAudioNumber,
+              isAdoption: this.data.cat.isAdoption,
               furColor: this.data.cat.furColor,
               classification: this.data.cat.classification,
               gender: this.data.cat.gender,

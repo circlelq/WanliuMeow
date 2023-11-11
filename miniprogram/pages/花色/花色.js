@@ -35,7 +35,9 @@ Page({
       classification: classification,
       status: "健康"
     }, {
-      sort: { lastEditTime: -1 },
+      sort: { 
+        isAdoption: -1
+       },
       skip: cat.length,
       limit: 20,
     }).then(res => {

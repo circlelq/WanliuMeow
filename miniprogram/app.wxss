@@ -95,6 +95,7 @@
   display: flex;
   align-items: center;
   width: 100%;
+  justify-content: space-between;
 }
 
 /*分割线样式*/
@@ -104,7 +105,6 @@
   margin-left: 150rpx;
 }
 
-
 /*猫名称*/
 .cat-name {
   font-size: 32rpx;
@@ -112,6 +112,18 @@
   margin-left: 150rpx;
   color: #353535;
   text-align: center;
+}
+
+.adoption {
+  font-size: 32rpx;
+  flex-direction: row;
+  /* margin-right: 50rpx; */
+  color: white;
+  justify-content: right;
+  text-align: right;
+  margin-right: 40rpx;
+  background-color : #7CA698;
+  width:3em;
 }
 
 /*搜索框*/
