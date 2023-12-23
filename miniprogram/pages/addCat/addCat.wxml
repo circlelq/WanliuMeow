@@ -22,6 +22,11 @@
 <input data-key='name' bindinput="inputText" class="edit-input" value="{{cat.name}}" />
 
 <view class="head1">
+  <text user-select="true">昵称</text>
+</view>
+<input data-key='nickName' bindinput="inputText" class="edit-input" value="{{cat.nickName}}" />
+
+<view class="head1">
   <text user-select="true">外貌</text>
 </view>
 <input data-key='appearance' bindinput="inputText" class="edit-input" value="{{cat.appearance}}" />

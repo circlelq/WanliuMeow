@@ -25,6 +25,14 @@
 </view>
 
 <view class="itemname1">
+  <view wx:if="{{cat.nickName}}" class="flex-wrp" style="flex-direction:column;">
+    <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
+      <text user-select="true">昵称</text>
+    </view>
+    <view class="itemname2">
+      <text user-select="true">{{cat.nickName}}</text>
+    </view>
+  </view>
   <view wx:if="{{cat.furColor}}" class="flex-wrp" style="flex-direction:column;">
     <view style='flex-shrink:0; box-sizing:border-box; width:350rpx;'>
       <text user-select="true">毛色</text>

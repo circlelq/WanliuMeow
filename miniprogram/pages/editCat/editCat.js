@@ -87,6 +87,7 @@ Page({
               addPhotoNumber: this.data.cat.addPhotoNumber,
               addAudioNumber: this.data.cat.addAudioNumber,
               isAdoption: this.data.cat.isAdoption,
+              nickName: this.data.cat.nickName,
               furColor: this.data.cat.furColor,
               classification: this.data.cat.classification,
               gender: this.data.cat.gender,

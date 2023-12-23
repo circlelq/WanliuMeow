@@ -60,6 +60,7 @@ Page({
           app.mpServerless.db.collection('WanliuMeow').insertOne({
             name: this.data.cat.name,
             addPhotoNumber: this.data.cat.addPhotoNumber,
+            nickName: this.data.cat.nickName,
             addAudioNumber: this.data.cat.addAudioNumber,
             furColor: this.data.cat.furColor,
             classification: this.data.cat.classification,
