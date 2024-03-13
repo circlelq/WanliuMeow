@@ -10,7 +10,7 @@ Page({
       classification: ['狸花', '橘猫及橘白', '奶牛', '玳瑁及三花', '纯色'],
       gender: ['', '公', '母'],
       isAdoption: ['', '待领养'],
-      addPhotoNumber: ['0', '1', '2', '3'],
+      addPhotoNumber: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
       addAudioNumber: ['0', '1', '2', '3'],
       isSterilization: ['', '已绝育', '未绝育'],
       status: ['健康', '送养', '失踪', '离世'],
