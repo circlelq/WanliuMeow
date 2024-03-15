@@ -22,6 +22,11 @@
   公众号：<text user-select="true">万柳猫猫之家</text>
 </view>
 
+<view style="display:flex; justify-content:center; align-items:center;">
+  <image bindtap='previewImage' mode="widthFix" data-src="/pages/images/二维码.png" src="/pages/images/二维码.png" style="width: 90%;">
+  </image>
+</view>
+
 <text> \n </text>
 
 <view class="staff">
@@ -31,7 +36,7 @@
   信息整理：倒立茵
 </view>
 <view class="staff">
-  v2.3.4
+  v2.3.5
 </view>
 
 <text> \n </text>

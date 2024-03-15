@@ -71,51 +71,69 @@ Page({
     });
   },
 
+  // 删除已经选择的日期
+  cancelDate(e) {
+    const key = e.currentTarget.dataset.key;
+    console.log(e)
+    wx.showModal({
+      title: '提示',
+      content: '确定删除吗？',
+      content: '确定删除这个日期吗？',
+      success: (res) => {
+        if (res.confirm) {
+          this.setData({
+            ['cat.' + key]: ''
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+
+  },
+
   upload() {
     wx.showModal({
       title: '提示',
       content: '确定提交吗？',
       success: (res) => {
         if (res.confirm) {
-          wx.showLoading({
-            title: '更新中...',
-          });
           app.mpServerless.db.collection('WanliuMeow').updateMany({
-            _id: this.data.cat._id
-          }, {
-            $set: {
-              addPhotoNumber: this.data.cat.addPhotoNumber,
-              addAudioNumber: this.data.cat.addAudioNumber,
-              isAdoption: this.data.cat.isAdoption,
-              nickName: this.data.cat.nickName,
-              furColor: this.data.cat.furColor,
-              classification: this.data.cat.classification,
-              gender: this.data.cat.gender,
-              status: this.data.cat.status,
-              isSterilization: this.data.cat.isSterilization,
-              sterilizationTime: this.data.cat.sterilizationTime,
-              character: this.data.cat.character,
-              firstSightingTime: this.data.cat.firstSightingTime,
-              firstSightingLocation: this.data.cat.firstSightingLocation,
-              appearance: this.data.cat.appearance,
-              missingTime: this.data.cat.missingTime,
-              relationship: this.data.cat.relationship,
-              deliveryTime: this.data.cat.deliveryTime,
-              deathTime: this.data.cat.deathTime,
-              moreInformation: this.data.cat.moreInformation,
-              deathReason: this.data.cat.deathReason,
-              location: this.data.cat.location,
-              birthTime: this.data.cat.birthTime,
-              relatedCats: this.data.cat.relatedCats,
-              lastEditTime: Date(),
-              lastEditAdministrator: app.globalData.Administrator,
-            }
-          }).then(res => {
-            wx.showToast({
-              icon: 'success',
-              title: '操作成功',
-            });
-          })
+              _id: this.data.cat._id
+            }, {
+              $set: {
+                addPhotoNumber: this.data.cat.addPhotoNumber,
+                addAudioNumber: this.data.cat.addAudioNumber,
+                isAdoption: this.data.cat.isAdoption,
+                nickName: this.data.cat.nickName,
+                furColor: this.data.cat.furColor,
+                classification: this.data.cat.classification,
+                gender: this.data.cat.gender,
+                status: this.data.cat.status,
+                isSterilization: this.data.cat.isSterilization,
+                sterilizationTime: this.data.cat.sterilizationTime,
+                character: this.data.cat.character,
+                firstSightingTime: this.data.cat.firstSightingTime,
+                firstSightingLocation: this.data.cat.firstSightingLocation,
+                appearance: this.data.cat.appearance,
+                missingTime: this.data.cat.missingTime,
+                relationship: this.data.cat.relationship,
+                deliveryTime: this.data.cat.deliveryTime,
+                deathTime: this.data.cat.deathTime,
+                moreInformation: this.data.cat.moreInformation,
+                deathReason: this.data.cat.deathReason,
+                location: this.data.cat.location,
+                birthTime: this.data.cat.birthTime,
+                relatedCats: this.data.cat.relatedCats,
+                lastEditTime: Date(),
+                lastEditAdministrator: app.globalData.Administrator,
+              }
+            }).then(res => {
+              wx.showToast({
+                icon: 'success',
+                title: '操作成功',
+              });
+            })
             .catch(err => {
               console.error(err);
               wx.showToast({
