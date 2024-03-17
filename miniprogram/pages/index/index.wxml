@@ -15,7 +15,7 @@
 <view hidden="{{currentTab!==0}}">
 
   <text> \n </text>
-  <navigator url="/pages/花色/花色?classification=玳瑁及三花">
+  <navigator url="/pages/colors/colors?classification=玳瑁及三花">
     <view class="catitem">
       <image lazy-load='true' class='avator' src="/pages/images/霖霖.png" mode='aspectFill'></image>
       <view class="cat-name">三花和玳瑁</view>
@@ -24,7 +24,7 @@
 
   <view class="divLine"></view>
 
-  <navigator url="/pages/花色/花色?classification=橘猫及橘白">
+  <navigator url="/pages/colors/colors?classification=橘猫及橘白">
     <view class="catitem">
       <image lazy-load='true' class='avator' src="/pages/images/炸鸡.png" mode='aspectFill'></image>
       <view class="cat-name">橘猫和橘白</view>
@@ -33,7 +33,7 @@
 
   <view class="divLine"></view>
 
-  <navigator url="/pages/花色/花色?classification=纯色">
+  <navigator url="/pages/colors/colors?classification=纯色">
     <view class="catitem">
       <image lazy-load='true' class='avator' src="/pages/images/大白.png" mode='aspectFill'></image>
       <view class="cat-name">纯色</view>
@@ -43,7 +43,7 @@
 
   <view class="divLine"></view>
 
-  <navigator url="/pages/花色/花色?classification=奶牛">
+  <navigator url="/pages/colors/colors?classification=奶牛">
     <view class="catitem">
       <image lazy-load='true' class='avator' src="/pages/images/太郎.png" mode='aspectFill'></image>
       <view class="cat-name">奶牛</view>
@@ -52,7 +52,7 @@
 
   <view class="divLine"></view>
 
-  <navigator url="/pages/花色/花色?classification=狸花">
+  <navigator url="/pages/colors/colors?classification=狸花">
     <view class="catitem">
       <image lazy-load='true' class='avator' src="/pages/images/嫖嫖.png" mode='aspectFill'></image>
       <view class="cat-name">狸花</view>
@@ -61,7 +61,7 @@
 
   <view class="divLine"></view>
 
-  <navigator url="/pages/所有/所有">
+  <navigator url="/pages/all/all">
     <view class="catitem">
       <image lazy-load='true' class='avator' src="/pages/images/huihui.png" mode='aspectFill'></image>
       <view class="cat-name">所有</view>
