@@ -77,7 +77,7 @@ Page({
       this.loadMoreCat_unknown();
     }
     if (this.data.currentTab === 3) {
-      this.loadMoreCat_unknown();
+      this.loadMoreCat_dead();
     }
   },
 
